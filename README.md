@@ -2,16 +2,22 @@
 
 ## Installation
 
-  # git clone https://github.com/manueldeval/hackathon_fc.git
-  # cd hackathon_fc
-  # npm install
+```sh
+$ git clone https://github.com/manueldeval/hackathon_fc.git
+$ cd hackathon_fc
+$ npm instal
+```
 
 ## Execution
 
 ### Dev
 
-  # npm run dev
+```sh
+$ npm run dev
+```
 
 ### Prod
 
-  # npm run start
+```sh
+$ npm run start
+```
