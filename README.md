@@ -5,7 +5,7 @@
 ```sh
 $ git clone https://github.com/manueldeval/hackathon_fc.git
 $ cd hackathon_fc
-$ npm instal
+$ npm install
 ```
 
 ## Execution
