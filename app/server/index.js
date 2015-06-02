@@ -1,5 +1,5 @@
 
-var config = require('config');
+var config = require('./utils/appconfig');
 var server = require('./server');
 var checkRouter = require('./api/checkrouter');
 
