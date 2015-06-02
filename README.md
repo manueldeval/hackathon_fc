@@ -26,5 +26,5 @@ $ npm run start
 
 Chaque push sur la branche master provoque le déploiement de l'applucation sur heroku.
 
-https://hackatonfc.herokuapp.com/#/view1
+https://hackatonfc.herokuapp.com/
 
