@@ -2,7 +2,6 @@ var ctrl1 = require('./ctrl1');
 var ctrl2 =require('./ctrl2')
 
 var app = angular.module('app', ['ngRoute']);
-
 app.controller(ctrl1.name, ['$scope', ctrl1.ctrl]);  
 app.controller(ctrl2.name, ['$scope', ctrl2.ctrl]);  
 
