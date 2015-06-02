@@ -1,12 +1,21 @@
 var ctrl1 = require('./ctrl1');
 var ctrl2 =require('./ctrl2')
 
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute','ngMaterial']);
 app.controller(ctrl1.name, ['$scope', ctrl1.ctrl]);  
 app.controller(ctrl2.name, ['$scope', ctrl2.ctrl]);  
 
-app.config(['$routeProvider', function($routeProvider){
 
+app.config(['$mdThemingProvider', function($mdThemingProvider){
+	$mdThemingProvider.theme('default')
+	    .primaryPalette('blue-grey')
+	    .accentPalette('orange')
+	    .warnPalette('red');
+}]);
+
+
+app.config(['$routeProvider', function($routeProvider){
+	// Configure routes
 	$routeProvider.when('/view1',{
 		templateUrl: 'views/view1.html',
 		controller: ctrl1.name
@@ -18,3 +27,4 @@ app.config(['$routeProvider', function($routeProvider){
 	});
 
 }]);
+

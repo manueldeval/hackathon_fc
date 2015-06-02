@@ -1,17 +1,33 @@
 <html>
 <head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<link rel="icon" type="image/png" href="images/france.png" />
+	<link rel="stylesheet" href="/vendor/angular-material/angular-material.css">
 </head>
 <body  ng-app="app">
-    <ul class="menu">
-      <li><a href="#/view1">Vue 1</a></li>
-      <li><a href="#/view2">Vue 2</a></li>
-    </ul>
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+	 		<h2>Titre</h2>
+		</div>
+	</md-toolbar>
 
-	<div ng-view></div ng-view>
+	<md-content layout-padding>
+	    <ul class="menu">
+	      <li><a href="#/view1">Vue 1</a></li>
+	      <li><a href="#/view2">Vue 2</a></li>
+	    </ul>
+
+		<div ng-view></div ng-view>
+	<md-content>
+
 
 	<script type="text/javascript" src="/vendor/angular/angular.js"></script>
 	<script type="text/javascript" src="/vendor/angular-route/angular-route.js"></script>
+ 	
+ 	<script type="text/javascript" src="/vendor/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/vendor/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="/vendor/angular-material/angular-material.js"></script>
+
 	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
