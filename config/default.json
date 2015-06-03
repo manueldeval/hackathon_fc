@@ -1,5 +1,4 @@
 {
-  "key1":"value1_default",
-  "key2":"value2_default",
-  "key3":"value3_default"
+	"comment":"Le port est fourni par variable d'environnement sur heroku",
+	"PORT":8080
 }

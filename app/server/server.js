@@ -31,9 +31,5 @@ var bundle = browserify_express({
 });
 app.use(bundle);
 
-// The server is now started.
-app.listen(port);
-console.log('Started on port ' + port);
-
 // export module
 module.exports = app;

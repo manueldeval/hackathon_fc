@@ -15,8 +15,13 @@ var get = function(key){
 	}
 }
 
+var getPort = function(){
+	return get('PORT');
+}
+
 module.exports = {
-	get:get
+	get:get,
+	getPort:getPort
 }
 
 
