@@ -9,7 +9,6 @@ var redis = require('./utils/redis');
 server.use('/api', checkRouter);
 server.use('/login', loginRouter);
 
-console.log(redis);
 // The server is now started.
 var _onExpressStarted = function(){
 	console.log('Application started on port: ' + config.getPort());
