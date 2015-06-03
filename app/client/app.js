@@ -1,6 +1,6 @@
-var ctrl1 = require('./ctrl1');
-var ctrl2 =require('./ctrl2')
-var loginCtrl =require('./loginCtrl')
+var ctrl1 = require('./controllers/ctrl1');
+var ctrl2 =require('./controllers/ctrl2')
+var loginCtrl =require('./controllers/loginCtrl')
 
 var app = angular.module('app', ['ngRoute','ngMaterial']);
 app.controller('')
