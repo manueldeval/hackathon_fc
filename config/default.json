@@ -1,4 +1,9 @@
 {
-	"comment":"Le port est fourni par variable d'environnement sur heroku",
-	"PORT":8080
+	"comment":"=================================================================",	
+	"comment":"Ces donnees sont fournies par variable d'environnement sur heroku",
+	"comment":"=================================================================",	
+	"PORT":8080,
+	"REDIS_PORT":6379,
+	"REDIS_HOST":"127.0.0.1",
+	"REDIS_PASSWORD":""
 }

@@ -15,13 +15,19 @@ var get = function(key){
 	}
 }
 
-var getPort = function(){
-	return get('PORT');
-}
+var getPort = function(){ return get('PORT'); }
+var getRedisPort =  function(){ return get('REDIS_PORT'); };
+var getRedisHost =  function(){ return get('REDIS_HOST'); };
+var getRedisPassword =  function(){ return get('REDIS_PASSWORD'); };
+
+
 
 module.exports = {
-	get:get,
-	getPort:getPort
+	get : get,
+	getPort : getPort,
+	getRedisPort : getRedisPort,
+	getRedisHost : getRedisHost,
+	getRedisPassword : getRedisPassword
 }
 
 
