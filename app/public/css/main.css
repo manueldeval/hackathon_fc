@@ -1,0 +1,13 @@
+#loginpopup {
+	width:400px;
+	height:290px;
+}
+
+#loginpopup .md-subheader {
+	background-color:rgb(96, 125, 139);
+	color:white;
+}
+
+#loginpopup .md-input {
+	width:320px;
+}

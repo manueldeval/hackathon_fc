@@ -3,11 +3,16 @@
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<link rel="icon" type="image/png" href="images/france.png" />
 	<link rel="stylesheet" href="/vendor/angular-material/angular-material.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body  ng-app="app">
 	<md-toolbar>
-		<div class="md-toolbar-tools">
+		<div class="md-toolbar-tools" ng-controller="loginCtrl">
 	 		<h2>Titre</h2>
+	 		<span flex></span>
+        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="showLogin()">
+          		Authentification <md-icon md-svg-icon="images/login.svg"></md-icon>
+        	</md-button>
 		</div>
 	</md-toolbar>
 
