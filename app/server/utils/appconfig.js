@@ -46,24 +46,44 @@ var _getByPath = function(obj, path){
     return output;
 };
 
+var _hasByPath = function(obj, path) {
+	var keys = path.split('.');
+    var output = obj;
+    keys.forEach(function(k){
+        output = output[k];
+        if (output === undefined){ return false; }
+    });
+    if (output === undefined){ return false; }
+    return true;
+}
+
 var CONFIG = _mergeConfigFileAndEnv(_parseConfigFile(),_getConfigEnv());
 
 var getAllAsObject = function(){ return _clone(CONFIG); }
 var get = function(path){ return _getByPath(CONFIG,path); }
+var has = function(path){ return _hasByPath(CONFIG,path); }
 
 // Project related functions.
 var getPort = function(){ return get('PORT'); }
 var getRedisPort =  function(){ return get('REDIS_PORT'); };
 var getRedisHost =  function(){ return get('REDIS_HOST'); };
 var getRedisPassword =  function(){ return get('REDIS_PASSWORD'); };
+var getHttpProxy =  function(){ return get('http_proxy'); };
+var getRedirectOauth = function() { return get('REDIRECT_OAUTH')};
+
+var hasHttpProxy = function() { return has('http_proxy'); };
 
 module.exports = {
 	getAllAsObject : getAllAsObject,
 	get : get,
+	has : has,
 	getPort : getPort,
 	getRedisPort : getRedisPort,
 	getRedisHost : getRedisHost,
-	getRedisPassword : getRedisPassword
+	getRedisPassword : getRedisPassword,
+	getHttpProxy : getHttpProxy,
+	hasHttpProxy: hasHttpProxy,
+	getRedirectOauth: getRedirectOauth
 }
 
 

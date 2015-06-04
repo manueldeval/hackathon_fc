@@ -5,8 +5,4 @@ var ctrl2 = function($scope){
 }
 
 
-module.exports = {
-	name:'ctrl2',
-	ctrl:ctrl2
-}
-
+module.exports = ctrl2;

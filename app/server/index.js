@@ -7,7 +7,7 @@ var redis = require('./utils/redis');
 
 // Enregistrement des api Rest
 server.use('/api', checkRouter);
-server.use('/login', loginRouter);
+server.use('/auth', loginRouter);
 
 // The server is now started.
 var _onExpressStarted = function(){
