@@ -6,7 +6,7 @@ var loginCtrl = function($scope, $mdDialog, $http, $location){
 
 	var showLogin = function(ev) {
 
-    document.location.href="http://localhost:8080/auth";
+    document.location.href="/auth";
  		// $mdDialog.show({
     //    	controller: 'loginCtrl',
     //   		templateUrl: 'views/login.html',
