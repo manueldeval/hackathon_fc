@@ -20,6 +20,7 @@
 			"protocol": "http",
 			"authorizationURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/authorize",
     		"tokenURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/token",
+    		"userInfoURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/userinfo",
     		"clientID": "FROM_ENVIRONMENT_VAR",
     		"clientSecret": "FROM_ENVIRONMENT_VAR",
     		"callbackURL": "http://localhost:8080/OpenIdFranceConnect/login/oidc_callback",

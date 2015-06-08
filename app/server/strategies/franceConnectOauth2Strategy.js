@@ -249,7 +249,7 @@ var strat = function() {
             done(null, profile);
         });
 
-    var alternateAuthenticate = new PassportAuthenticateWithCustomClaims('http://fcp.dev.dev-franceconnect.fr/api/v1/userinfo', "eidas2", 1);
+    var alternateAuthenticate = new PassportAuthenticateWithCustomClaims(parameters.userInfoURL, "eidas2", 1);
     strategy.authenticate = alternateAuthenticate.authenticate;
 
     return strategy;

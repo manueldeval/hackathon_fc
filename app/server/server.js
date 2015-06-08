@@ -12,7 +12,7 @@ var app        = express();
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(session({ secret: 'Some Secret !!!', key: 'sid'}));
+app.use(session({ secret: '53cr3t!', key: 'sid'}));
 app.use(passport.initialize());
 
 var port = process.env.PORT || 8080;        // set our port
