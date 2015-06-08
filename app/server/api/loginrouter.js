@@ -17,7 +17,7 @@ router.get('/user', function(req,res) {
 });
 
 router.get('/config', function(req,res) {
-	res.status(200).send(config.getAllAsObject()); 
+	res.status(200).send("config.hasProxy = " + config.hasHttpProxy()); 
 });
 
 router.get('/callback',
