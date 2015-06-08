@@ -17,10 +17,10 @@
     		"scope" : ["https://www.googleapis.com/auth/plus.login", "https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/userinfo.profile"]
 		},
 		"FRANCECONNECT":{
-			"protocol": "http",
-			"authorizationURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/authorize",
-    		"tokenURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/token",
-    		"userInfoURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/userinfo",
+			"protocol": "https",
+			"authorizationURL": "https://fcp.integ01.dev-franceconnect.fr/api/v1/authorize",
+    		"tokenURL": "https://fcp.integ01.dev-franceconnect.fr/api/v1/token",
+    		"userInfoURL": "https://fcp.integ01.dev-franceconnect.fr/api/v1/userinfo",
     		"clientID": "FROM_ENVIRONMENT_VAR",
     		"clientSecret": "FROM_ENVIRONMENT_VAR",
     		"callbackURL": "http://localhost:8080/OpenIdFranceConnect/login/oidc_callback",
