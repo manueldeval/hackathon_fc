@@ -18,8 +18,8 @@
 		},
 		"FRANCECONNECT":{
 			"protocol": "http",
-			"authorizationURL": "http://fcp.dev.dev-franceconnect.fr/api/v1/authorize",
-    		"tokenURL": "http://fcp.dev.dev-franceconnect.fr/api/v1/token",
+			"authorizationURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/authorize",
+    		"tokenURL": "http://fcp.integ01.dev-franceconnect.fr/api/v1/token",
     		"clientID": "FROM_ENVIRONMENT_VAR",
     		"clientSecret": "FROM_ENVIRONMENT_VAR",
     		"callbackURL": "http://localhost:8080/OpenIdFranceConnect/login/oidc_callback",
