@@ -47,23 +47,23 @@ PassportAuthenticateWithCustomClaims.prototype.authenticate = function(req, opti
         var code = req.query.code;
         var oauth2 = new OAuth2(this._clientID,  this._clientSecret,'', this._authorizationURL, this._tokenURL);
 
-        if (config.hasHttpProxy()) {
-            var proxy = config.getHttpProxy();
-            var protocol = parameters.protocol;
-            if (!OAuth2.prototype._oldExecuteRequest) {
-                OAuth2.prototype._oldExecuteRequest = oauth2._executeRequest;
-                OAuth2.prototype._executeRequest = function(http_library, options, post_body, callback) {
-                    if (protocol == "http") {
-                        var agent = new HttpProxyAgent(proxy);
-                        options.agent = agent;
-                    } else {
-                        var agent = new HttpsProxyAgent(proxy);
-                        options.agent = agent;
-                    }
-                    oauth2._oldExecuteRequest(http_library, options, post_body, callback)
-                }
-            }
-        }
+        // if (config.hasHttpProxy()) {
+        //     var proxy = config.getHttpProxy();
+        //     var protocol = parameters.protocol;
+        //     if (!OAuth2.prototype._oldExecuteRequest) {
+        //         OAuth2.prototype._oldExecuteRequest = oauth2._executeRequest;
+        //         OAuth2.prototype._executeRequest = function(http_library, options, post_body, callback) {
+        //             if (protocol == "http") {
+        //                 var agent = new HttpProxyAgent(proxy);
+        //                 options.agent = agent;
+        //             } else {
+        //                 var agent = new HttpsProxyAgent(proxy);
+        //                 options.agent = agent;
+        //             }
+        //             oauth2._oldExecuteRequest(http_library, options, post_body, callback)
+        //         }
+        //     }
+        // }
 
         oauth2.getOAuthAccessToken(code, { grant_type: 'authorization_code', redirect_uri: callbackURL }, function(err, accessToken, refreshToken, params) {
             if (err) {
