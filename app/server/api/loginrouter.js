@@ -17,7 +17,11 @@ router.get('/user', function(req,res) {
 });
 
 router.get('/config', function(req,res) {
-	res.status(200).send("config.hasProxy = " + config.hasHttpProxy()); 
+	if (config.hasHttpProxy()) {
+		res.status(200).send("HAS"); 
+	} else {
+		res.status(200).send("HAS NOT"); 
+	}
 });
 
 router.get('/callback',
