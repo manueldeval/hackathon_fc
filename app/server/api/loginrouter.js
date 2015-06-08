@@ -16,6 +16,10 @@ router.get('/user', function(req,res) {
 	}
 });
 
+router.get('/config', function(req,res) {
+	res.status(200).send(config.getAllAsObject()); 
+});
+
 router.get('/callback',
   passport.authenticate('oauth2'),
   function(req, res) {
