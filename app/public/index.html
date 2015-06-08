@@ -10,8 +10,11 @@
 		<div class="md-toolbar-tools" ng-controller="loginCtrl">
 	 		<h2>Titre</h2>
 	 		<span flex></span>
-        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="showLogin()">
+        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="login()" ng-if="!authentified">
           		Authentification <md-icon md-svg-icon="images/login.svg"></md-icon>
+        	</md-button>
+        	<md-button class="md-raised md-accent" aria-label="Profil" ng-click="" ng-if="authentified">
+          		{{user.given_name}} {{user.family_name}} <md-icon md-svg-icon="images/profile.svg"></md-icon>
         	</md-button>
 		</div>
 	</md-toolbar>

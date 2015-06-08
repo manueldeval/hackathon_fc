@@ -6,5 +6,25 @@
 	"REDIS_PORT":6379,
 	"REDIS_HOST":"127.0.0.1",
 	"REDIS_PASSWORD":"",
-	"REDIRECT_OAUTH":"http://localhost:8080/auth/callback"
+	"PROVIDERS": {
+		"GOOGLE":{
+			"protocol": "https",
+			"authorizationURL": "https://accounts.google.com/o/oauth2/auth",
+    		"tokenURL": "https://accounts.google.com/o/oauth2/token",
+    		"clientID": "FROM_ENVIRONMENT_VAR",
+    		"clientSecret": "FROM_ENVIRONMENT_VAR",
+    		"callbackURL": "http://localhost:8080/auth/callback",
+    		"scope" : ["https://www.googleapis.com/auth/plus.login", "https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/userinfo.profile"]
+		},
+		"FRANCECONNECT":{
+			"protocol": "http",
+			"authorizationURL": "http://fcp.dev.dev-franceconnect.fr/api/v1/authorize",
+    		"tokenURL": "http://fcp.dev.dev-franceconnect.fr/api/v1/token",
+    		"clientID": "FROM_ENVIRONMENT_VAR",
+    		"clientSecret": "FROM_ENVIRONMENT_VAR",
+    		"callbackURL": "http://localhost:8080/OpenIdFranceConnect/login/oidc_callback",
+    		"scope": ["profile", "email", "address", "phone", "openid"],
+    		"skipUserProfile":false
+		}
+	}
 }

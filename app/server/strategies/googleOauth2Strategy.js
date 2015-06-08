@@ -2,18 +2,18 @@ var OAuth2Strategy = require('passport-oauth2').Strategy;
 var HttpsProxyAgent=require('https-proxy-agent')
 var config = require('../utils/appconfig');
 
-var strategy = new OAuth2Strategy({
-    authorizationURL: 'https://accounts.google.com/o/oauth2/auth',
-    tokenURL: 'https://accounts.google.com/o/oauth2/token',
-    clientID: '1011708465316-ideu33f84mug2pdb8ha5vcko8bm597e0.apps.googleusercontent.com',
-    clientSecret: 'SLKuypPTKNfhGcsOVFMTGSrM',
-    callbackURL: config.getRedirectOauth()//"http://localhost:8080/auth/callback"
-  },
+var strategyConf = config.getGoogleProviderConfig();
+
+var strategy = new OAuth2Strategy(strategyConf,
   function(accessToken, refreshToken, profile, done) {
+    console.log(profile);
     return done(null, profile);
   }
 );
 
+// strategy.userProfile = function(accessToken, done) {
+//   return done(null, {});
+// };
 
 if (config.hasHttpProxy()) {
   var proxy = config.getHttpProxy();

@@ -1,26 +1,26 @@
 
-var loginCtrl = function($scope, $mdDialog, $http, $location){
+var loginCtrl = function($scope, loginService){
 
 	$scope.username = "";
 	$scope.password = "";
+  $scope.authentified = false;
 
-	var showLogin = function(ev) {
-
+	var login = function(ev) {
     document.location.href="/auth";
- 		// $mdDialog.show({
-    //    	controller: 'loginCtrl',
-    //   		templateUrl: 'views/login.html',
-    //   		targetEvent: ev,
-    // 	});
+  }
+  var getUser = function() {
+    return loginService.getUser();
   }
 
-  	// var login = function() {
-  	// 	$http.get('/auth');
-  	// }
-
-  	$scope.showLogin = showLogin;
-  	//$scope.login = login;
-
+ 	$scope.login = login;
+  getUser().then(function(user) {
+              $scope.authentified = true;
+              $scope.user = user;
+           })
+           .catch(function(err) {
+              $scope.authentified = false;
+              $scope.user={};
+           })
 }
 
 

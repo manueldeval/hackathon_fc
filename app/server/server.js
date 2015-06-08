@@ -1,8 +1,10 @@
 var express    = require('express');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var browserify_express = require('browserify-express');
 var passport = require('passport');
-var googleOauth2Strategy = require('./strategies/googleOauth2Strategy');
+//var googleOauth2Strategy = require('./strategies/googleOauth2Strategy');
+var fcOauth2trategy = require('./strategies/franceConnectOauth2Strategy');
 
 var app        = express();
 
@@ -10,6 +12,7 @@ var app        = express();
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(session({ secret: 'Some Secret !!!', key: 'sid'}));
 app.use(passport.initialize());
 
 var port = process.env.PORT || 8080;        // set our port
@@ -22,14 +25,18 @@ app.use(express.static('./app/public/'));
 // The /vendor url expose the node_module directory
 app.use('/vendor', express.static('./node_modules/'));
 
-// passport
-passport.use(googleOauth2Strategy);
+// --> passport
+// --> Google strategy
+//passport.use(googleOauth2Strategy);
+
+// --> FC strategy
+passport.use('oauth2', fcOauth2trategy());
 
 passport.serializeUser(function(user, done) {
 	done(null, user);
 });
-passport.deserializeUser(function(id, done) {
-	done(null, {});
+passport.deserializeUser(function(obj, done) {
+	done(null, obj);
 })
 
 // Auto browserify
@@ -40,7 +47,7 @@ var bundle = browserify_express({
     watch: __dirname + '/../client/',
     mount: '/app.js',
     verbose: true,
-    minify: true
+    minify: false
 });
 app.use(bundle);
 

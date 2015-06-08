@@ -69,9 +69,11 @@ var getRedisPort =  function(){ return get('REDIS_PORT'); };
 var getRedisHost =  function(){ return get('REDIS_HOST'); };
 var getRedisPassword =  function(){ return get('REDIS_PASSWORD'); };
 var getHttpProxy =  function(){ return get('http_proxy'); };
-var getRedirectOauth = function() { return get('REDIRECT_OAUTH')};
-
 var hasHttpProxy = function() { return has('http_proxy'); };
+
+var getGoogleProviderConfig = function() { return get('PROVIDERS.GOOGLE')};
+var getFranceConnectProviderConfig = function() { return get('PROVIDERS.FRANCECONNECT')};
+
 
 module.exports = {
 	getAllAsObject : getAllAsObject,
@@ -83,7 +85,8 @@ module.exports = {
 	getRedisPassword : getRedisPassword,
 	getHttpProxy : getHttpProxy,
 	hasHttpProxy: hasHttpProxy,
-	getRedirectOauth: getRedirectOauth
+	getGoogleProviderConfig: getGoogleProviderConfig,
+	getFranceConnectProviderConfig: getFranceConnectProviderConfig
 }
 
 
