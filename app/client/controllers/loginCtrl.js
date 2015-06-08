@@ -3,24 +3,43 @@ var loginCtrl = function($scope, loginService){
 
 	$scope.username = "";
 	$scope.password = "";
-  $scope.authentified = false;
+    $scope.authentified = false;
 
-	var login = function(ev) {
-    document.location.href="/auth";
-  }
-  var getUser = function() {
-    return loginService.getUser();
-  }
+	var login = function() {
+        document.location.href="/auth";
+    }
+    var logout = function() {
+        loginService.logout()
+                    .then(function() {
+                        $scope.authentified = false;
+                        $scope.user={};
+                    })
+    }
+    var getUser = function() {
+        return loginService.getUser();
+    }
 
  	$scope.login = login;
-  getUser().then(function(user) {
-              $scope.authentified = true;
-              $scope.user = user;
-           })
+    $scope.logout = logout;
+    getUser().then(function(user) {
+                $scope.authentified = true;
+                $scope.user = user;
+            })
            .catch(function(err) {
-              $scope.authentified = false;
-              $scope.user={};
-           })
+                $scope.authentified = false;
+                $scope.user={};
+           });
+
+    $scope.showProfileMenu=function() {
+        var elem = document.getElementById('profileMenu');
+        angular.element(elem).addClass('profileMenuShown');
+        angular.element(elem).removeClass('profileMenuHidden');
+    }
+    $scope.hideProfileMenu=function() {
+        var elem = document.getElementById('profileMenu');
+        angular.element(elem).addClass('profileMenuHidden');
+        angular.element(elem).removeClass('profileMenuShown');   
+    }
 }
 
 

@@ -2,8 +2,8 @@ var configTheme = function($mdThemingProvider) {
 
 	// Themes
 	$mdThemingProvider.theme('default')
-	    .primaryPalette('blue-grey')
-	    .accentPalette('orange')
+	    .primaryPalette('cyan')
+	    .accentPalette('amber')
 	    .warnPalette('red');
 }
 var configRoutes = function($routeProvider) {

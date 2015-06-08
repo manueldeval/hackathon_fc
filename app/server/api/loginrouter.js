@@ -16,13 +16,10 @@ router.get('/user', function(req,res) {
 	}
 });
 
-router.get('/config', function(req,res) {
-	if (config.hasHttpProxy()) {
-		res.status(200).send("HAS"); 
-	} else {
-		res.status(200).send("HAS NOT"); 
-	}
-});
+router.get('/logout', function(req,res) {
+	req.logout();
+	res.redirect('/');
+})
 
 router.get('/callback',
   passport.authenticate('oauth2'),

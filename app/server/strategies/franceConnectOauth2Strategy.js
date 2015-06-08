@@ -72,7 +72,6 @@ PassportAuthenticateWithCustomClaims.prototype.authenticate = function(req, opti
                 return self.fail({redirect_uri: options.failureRedirect});
             }
             var idToken = params['id_token'];
-            console.error('>>>>>>>>>>>> PARAMS : ' , params);
             if (!idToken) {
                 console.error('ID Token not present in token response from FI ' + req.headers.referer);
                 return self.fail({redirect_uri: options.failureRedirect});

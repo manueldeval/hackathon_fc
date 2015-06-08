@@ -10,6 +10,9 @@ var loginService = function() {
 									throw new Error("Unauthorized");
 								}
 							})
+			},
+			logout: function() {
+				return $http.get('/auth/logout');
 			}
 		}
 	}]

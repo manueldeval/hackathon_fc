@@ -10,12 +10,19 @@
 		<div class="md-toolbar-tools" ng-controller="loginCtrl">
 	 		<h2>Titre</h2>
 	 		<span flex></span>
-        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="login()" ng-if="!authentified">
-          		Authentification <md-icon md-svg-icon="images/login.svg"></md-icon>
-        	</md-button>
-        	<md-button class="md-raised md-accent" aria-label="Profil" ng-click="" ng-if="authentified">
-          		{{user.given_name}} {{user.family_name}} <md-icon md-svg-icon="images/profile.svg"></md-icon>
-        	</md-button>
+	 		<div ng-if="!authentified">
+	        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="login()" >
+	          		Authentification <md-icon md-svg-icon="images/login.svg"></md-icon>
+	        	</md-button>
+	        </div>
+	        <div ng-if="authentified" id="profileMenuWrapper" ng-mouseover="showProfileMenu()" ng-mouseout="hideProfileMenu()">
+	        	<md-button class="md-raised md-accent" aria-label="Profil">
+	          		<md-icon md-svg-icon="images/arrowd.svg" class="s12"></md-icon> {{user.given_name}} {{user.family_name}} <md-icon md-svg-icon="images/profile.svg"></md-icon>
+	        	</md-button>
+	        	<div id="profileMenu" class="profileMenu profileMenuHidden">
+	        		<a href="#" ng-click="logout()"><md-icon md-svg-icon="images/logout.svg" class="s12"></md-icon> Déconnexion</a>
+	        	</div>
+	        </div>
 		</div>
 	</md-toolbar>
 
