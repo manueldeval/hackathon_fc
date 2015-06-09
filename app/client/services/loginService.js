@@ -12,7 +12,10 @@ var loginService = function() {
 							})
 			},
 			logout: function() {
-				return $http.get('/auth/logout');
+				return $http.get('/auth/logout')
+				            .then(function(result) {
+				            	return result.data;
+				            });
 			}
 		}
 	}]

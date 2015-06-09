@@ -18,7 +18,12 @@ router.get('/user', function(req,res) {
 
 router.get('/logout', function(req,res) {
 	req.logout();
-	res.redirect('/');
+	if (providerConfig.logoutURL) {
+		res.status(200).send(providerConfig.logoutURL);
+	} else {
+		res.status(200).send();
+	}
+	
 })
 
 router.get('/callback',

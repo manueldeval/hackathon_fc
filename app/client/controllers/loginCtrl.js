@@ -1,5 +1,5 @@
 
-var loginCtrl = function($scope, loginService){
+var loginCtrl = function($scope, $window, loginService){
 
 	$scope.username = "";
 	$scope.password = "";
@@ -10,9 +10,12 @@ var loginCtrl = function($scope, loginService){
     }
     var logout = function() {
         loginService.logout()
-                    .then(function() {
+                    .then(function(result) {
                         $scope.authentified = false;
                         $scope.user={};
+                        if (result) {
+                            $window.location.href=result;
+                        }
                     })
     }
     var getUser = function() {
