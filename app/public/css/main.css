@@ -1,29 +1,11 @@
-.profileMenu {
-	position:absolute;
-	top:52px;
-	right:23px;
-	width:130px;
-	height:30px;
-	background-color:rgb(255, 215, 64);
-	border-radius:3px;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-	color:black;
-	padding:5px;
-	font-size:14px;
-
-}
-
-.profileMenuHidden {
-	display:none;
-}
-.profileMenuShown {
-	display:block;
-}
-#profileMenuWrapper {
-	padding-bottom:3px;
-}
-
 .s12 {
 	width: 12px;
 	height: 12px;
+}
+
+.smallerfont {
+	font-size:0.5em;
+}
+.smallfont {
+	font-size:0.7em;
 }

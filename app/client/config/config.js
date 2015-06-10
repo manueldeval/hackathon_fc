@@ -2,7 +2,7 @@ var configTheme = function($mdThemingProvider) {
 
 	// Themes
 	$mdThemingProvider.theme('default')
-	    .primaryPalette('cyan')
+	    .primaryPalette('blue-grey')
 	    .accentPalette('amber')
 	    .warnPalette('red');
 }

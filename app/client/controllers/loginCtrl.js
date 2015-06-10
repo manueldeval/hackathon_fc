@@ -27,22 +27,20 @@ var loginCtrl = function($scope, $window, loginService){
     getUser().then(function(user) {
                 $scope.authentified = true;
                 $scope.user = user;
+                // FIXME
+                console.log(user.gender);
+                if (user.gender=="male") {
+                    $scope.user.civilite="Mr";
+                } else if (user.gender=="female") {
+                    $scope.user.civilite="Mme";
+                }
+                
             })
            .catch(function(err) {
                 $scope.authentified = false;
                 $scope.user={};
            });
 
-    $scope.showProfileMenu=function() {
-        var elem = document.getElementById('profileMenu');
-        angular.element(elem).addClass('profileMenuShown');
-        angular.element(elem).removeClass('profileMenuHidden');
-    }
-    $scope.hideProfileMenu=function() {
-        var elem = document.getElementById('profileMenu');
-        angular.element(elem).addClass('profileMenuHidden');
-        angular.element(elem).removeClass('profileMenuShown');   
-    }
 }
 
 
