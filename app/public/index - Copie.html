@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="icon" type="image/png" href="images/france.png" />
+	<link rel="stylesheet" href="/vendor/angular-material/angular-material.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body  ng-app="app">
+	<md-toolbar>
+		<div class="md-toolbar-tools" ng-controller="loginCtrl">
+	 		<h2>Titre</h2>
+	 		<span flex></span>
+	 		<div ng-if="!authentified">
+	        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="login()" >
+	          		Authentification <md-icon md-svg-icon="images/login.svg"></md-icon>
+	        	</md-button>
+	        </div>
+	        <div ng-if="authentified" id="profileMenuWrapper" ng-mouseover="showProfileMenu()" ng-mouseout="hideProfileMenu()">
+	        	<md-button class="md-raised md-accent" aria-label="Profil">
+	          		<md-icon md-svg-icon="images/arrowd.svg" class="s12"></md-icon> {{user.given_name}} {{user.family_name}} <md-icon md-svg-icon="images/profile.svg"></md-icon>
+	        	</md-button>
+	        	<div id="profileMenu" class="profileMenu profileMenuHidden">
+	        		<a href="#" ng-click="logout()"><md-icon md-svg-icon="images/logout.svg" class="s12"></md-icon> Déconnexion</a>
+	        	</div>
+	        </div>
+		</div>
+	</md-toolbar>
+
+	<md-content layout-padding>
+	    <ul class="menu">
+	      <li><a href="#/view1">Vue 1</a></li>
+	      <li><a href="#/view2">Vue 2</a></li>
+	    </ul>
+
+		<div ng-view></div ng-view>
+	<md-content>
+
+
+	<script type="text/javascript" src="/vendor/angular/angular.js"></script>
+	<script type="text/javascript" src="/vendor/angular-route/angular-route.js"></script>
+ 	
+ 	<script type="text/javascript" src="/vendor/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/vendor/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="/vendor/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

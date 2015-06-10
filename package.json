@@ -33,7 +33,10 @@
     "q": "^1.4.1",
     "querystring": "^0.2.0",
     "redis": "^0.12.1",
-    "url": "^0.10.3"
+    "url": "^0.10.3",
+	"bootstrap":"3.3.4",
+	"jquery":"2.1.4",
+	"jquery.easing":"1.3.2"
   },
   "devDependencies": {
     "nodemon": "^1.3.7"

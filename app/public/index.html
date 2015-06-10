@@ -4,37 +4,177 @@
 	<link rel="icon" type="image/png" href="images/france.png" />
 	<link rel="stylesheet" href="/vendor/angular-material/angular-material.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/freelancer.css">
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+
 </head>
-<body  ng-app="app">
+<body  ng-app="app" id="body">
 	<md-toolbar>
-		<div class="md-toolbar-tools" ng-controller="loginCtrl">
-	 		<h2>Titre</h2>
-	 		<span flex></span>
-	 		<div ng-if="!authentified">
-	        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="login()" >
-	          		Authentification <md-icon md-svg-icon="images/login.svg"></md-icon>
-	        	</md-button>
-	        </div>
-	        <div ng-if="authentified" id="profileMenuWrapper" ng-mouseover="showProfileMenu()" ng-mouseout="hideProfileMenu()">
-	        	<md-button class="md-raised md-accent" aria-label="Profil">
-	          		<md-icon md-svg-icon="images/arrowd.svg" class="s12"></md-icon> {{user.given_name}} {{user.family_name}} <md-icon md-svg-icon="images/profile.svg"></md-icon>
-	        	</md-button>
-	        	<div id="profileMenu" class="profileMenu profileMenuHidden">
-	        		<a href="#" ng-click="logout()"><md-icon md-svg-icon="images/logout.svg" class="s12"></md-icon> Déconnexion</a>
-	        	</div>
-	        </div>
-		</div>
+		 <!-- Navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top" ng-controller="loginCtrl">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#" onclick="scrollTo('#body');">Portail citoyen 360°</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li class="page-scroll" ng-if="authentified">
+							<a onclick="scrollTo('#data');" href="#">Mes données</a>
+						</li>
+						<li class="page-scroll" ng-if="authentified">
+							<a onclick="scrollTo('#procedures');" href="#">Mes procédures</a>
+						</li>
+						<li class="page-scroll">
+							<a href="#" onclick="scrollTo('#contact');">Contact</a>
+						</li>
+						<!-- Authentification FranceConnect-->
+						<li ng-if="!authentified" class="page-scroll">
+							<md-button class="footer-above" aria-label="Authentification" ng-click="login()" >
+								<img src="images/logo FC.png" /> <md-icon md-svg-icon="images/login.svg"></md-icon>
+							</md-button>
+						</li>
+						<li class="page-scroll" ng-if="authentified" id="profileMenuWrapper" ng-mouseover="showProfileMenu()" ng-mouseout="hideProfileMenu()">
+							<md-button class="md-raised md-accent" aria-label="Profil">
+								<md-icon md-svg-icon="images/arrowd.svg" class="s12"></md-icon> {{user.given_name}} {{user.family_name}} <md-icon md-svg-icon="images/profile.svg"></md-icon>
+							</md-button>
+							<div id="profileMenu" class="profileMenu profileMenuHidden">
+								<a href="#" ng-click="logout()"><md-icon md-svg-icon="images/logout.svg" class="s12"></md-icon> Déconnexion</a>
+							</div>
+						</li>
+						<!-- /.Authentification FranceConnect-->
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+
+				
+
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
 	</md-toolbar>
 
-	<md-content layout-padding>
-	    <ul class="menu">
-	      <li><a href="#/view1">Vue 1</a></li>
-	      <li><a href="#/view2">Vue 2</a></li>
-	    </ul>
+	 <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="images/mariane-numerique.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Portail citoyen 360°</span>
+                        <hr class="star-light">
+                        <span class="skills">Mes données administratives - Mes procédures administratives</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+	 <!-- myData Section -->
+    <section id="data" ng-if="authentified" >
+        <div class="container" >
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Mes données</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>A completer.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>A completer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<div ng-view></div ng-view>
-	<md-content>
+	<!-- procedures -->
+	<section class="success" id="procedures" ng-if="authentified" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Procédures</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <p>A completer.</p>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <p>A completer.</p>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <p>A completer.</p>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <p>A completer.</p>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <p>A completer.</p>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <p>A completer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	
+	<!-- Contact -->
+	<section id="contact">
+	
+		<md-content layout-padding>
+			<ul class="menu">
+			  <li><a href="#/view1">Vue 1</a></li>
+			  <li><a href="#/view2">Vue 2</a></li>
+			</ul>
 
+			<div ng-view></div ng-view>
+		<md-content>
+	</section>
+
+	 <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <p><a href="http://www.culture.fr/" target="_" ><img src="/images/logo-mcc.png"/></a></p>
+                    </div>
+                    <div class="footer-col col-md-4">
+					<p></p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <p><a href="http://www.cgi.com/fr" target="_" ><img src="/images/logo-cgi.png"/></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Hackathon France connect / Etat plateforme
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 	<script type="text/javascript" src="/vendor/angular/angular.js"></script>
 	<script type="text/javascript" src="/vendor/angular-route/angular-route.js"></script>
@@ -42,6 +182,12 @@
  	<script type="text/javascript" src="/vendor/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="/vendor/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="/vendor/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/dist/js/bootstrap.min.js"></script>
+	    <!-- Plugin JavaScript -->
+    <script type="text/javascript" src="/vendor/jquery.easing/jquery.easing.min.js"></script>
+
+    <script type="text/javascript" src="/js/portal.js"></script>
 
 	<script type="text/javascript" src="app.js"></script>
 </body>
