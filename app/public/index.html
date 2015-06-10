@@ -7,9 +7,8 @@
 </head>
 <body  ng-app="app">
 	<md-toolbar>
-		<div class="md-toolbar-tools" ng-controller="loginCtrl">
-	 		<h2>Titre</h2>
-	 		<span flex></span>
+		<div class="md-toolbar-tools" ng-controller="loginCtrl" layout="rox" layout-align="space-around center">
+	 		<h2><b>PORTAIL CITOYEN 360°</b></h2>
 	 		<div ng-if="!authentified">
 	        	<md-button class="md-raised md-accent" aria-label="Authentification" ng-click="login()" >
 	          		Authentification <md-icon md-svg-icon="images/login.svg"></md-icon>
