@@ -14,3 +14,29 @@ html, body {
 	height: 100%;
 	min-height:100%;
 }
+
+.gridDashboard .deepBlue {
+  background: #6699FF;
+}
+
+.gridDashboard md-grid-tile md-grid-tile-footer {
+  background: rgba(0, 0, 0, 0.68);
+  height: 36px;
+}
+
+.gridDashboard .bloc {
+	color: #fff;
+    height: 100%;
+    line-height: 2em;
+    padding: 5px;
+    width: 100%;
+}
+
+md-content .gridDashboard {
+	background-color: rgba(0,0,0,0);
+}
+
+md-grid-tile {
+	border-radius:4px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}

@@ -5,21 +5,21 @@
 	<link rel="stylesheet" href="/vendor/angular-material/angular-material.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
-<body  ng-app="app">
+<body ng-app="app" ng-controller="globalCtrl">
 	<md-toolbar style="background-color:#369">
 		<div ng-controller="loginCtrl" layout="rox" layout-align="space-around center">
 	 		<div layout="row" layout-align="center center">
 	 			<img src="./images/logoFrance.png"/>
 	 			<h1 class="md-display-2" style="font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial"> PORTAIL CITOYEN 360°</h1>
 	 		</div>
-	 		<div ng-if="!authentified" layout="column" layout-align="center center">
+	 		<div ng-if="!app.authentified" layout="column" layout-align="center center">
 	        	<span class="smallerfont">Connectez vous via </span>
 	        	<md-button class="md-raised" aria-label="Authentification" ng-click="login()" >
 	          		<img src="./images/logoFC.png" width="120px"/>
 	        	</md-button>
 	        </div>
-	        <div ng-if="authentified" id="profileMenuWrapper" ng-mouseover="showProfileMenu()" ng-mouseout="hideProfileMenu()">
-	        	<md-icon md-svg-icon="images/profile.svg" class="s12"></md-icon><span> {{user.civilite}} {{user.given_name}} {{user.family_name}}</span>
+	        <div ng-if="app.authentified" id="profileMenuWrapper" ng-mouseover="showProfileMenu()" ng-mouseout="hideProfileMenu()">
+	        	<md-icon md-svg-icon="images/profile.svg" class="s12"></md-icon><span> {{app.user.civilite}} {{app.user.given_name}} {{app.user.family_name}}</span>
 	        	<md-button class="md-mini md-raised" aria-label="Déconnexion" ng-click="logout()">
 	          		<span class="smallfont">Déconnexion </span><md-icon md-svg-icon="images/logout.svg" class="s12"></md-icon>
 	        	</md-button>

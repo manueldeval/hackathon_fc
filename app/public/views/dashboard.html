@@ -1,0 +1,22 @@
+<md-content class="gridDashboard">
+
+	<md-grid-list
+        md-cols-sm="1" 
+        md-cols-md="2" 
+        md-cols-gt-md="3"
+        md-row-height-gt-md="3:1" 
+        md-row-height="2:1"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+    <md-grid-tile ng-repeat="dashboard in dashboards"
+                  md-rowspan="{{dashboard.row}}"
+                  md-colspan="1"
+                  md-colspan-sm="1"
+                  class="deepBlue" >
+        <div layout="column" class="bloc">
+        	<span ng-repeat="labVal in dashboard.dash">{{labVal.label}} : {{labVal.valeur}}</span><br/>
+        </div>
+      <md-grid-tile-footer><h3><md-icon md-svg-icon="images/{{dashboard.icone}}" class="s12" style="color:white"></md-icon> {{dashboard.label}}</h3></md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+
+</md-content>

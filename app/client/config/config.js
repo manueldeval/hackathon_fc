@@ -8,13 +8,20 @@ var configTheme = function($mdThemingProvider) {
 }
 var configRoutes = function($routeProvider) {
 	// Configure routes
-	$routeProvider.when('/accueil',{
+	$routeProvider
+	.when('/',{
+		templateUrl: 'views/dashboard.html',
+		controller: 'dashboardCtrl'
+	})
+	.when('/accueil',{
 		templateUrl: 'views/accueil.html',
-		controller: 'ctrl1'
-	}).when('/view2',{
+		controller: 'accueilCtrl'
+	})
+	.when('/view2',{
 		templateUrl: 'views/view2.html',
 		controller: 'ctrl2'
-	}).otherwise({
+	})
+	.otherwise({
 		redirectTo: '/accueil'
 	});
 }
