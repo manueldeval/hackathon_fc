@@ -15,27 +15,39 @@ var dashboardCtrl = function($scope, $location, dataService){
 		$scope.dashboards.push({label:'Identité', dash:identite, row:2, icone:'profile.svg'});
 	}
 	var getUserBanque = function() {
+		var dashboard = {label:'Coordonnées Bancaires', dash:{}, loading:true, row:1, icone:'credit.svg'};
+		$scope.dashboards.push(dashboard);
 		dataService.getFromDataset('Banque_Coordonnees')
 		           .then(function(datas) {
-		           		$scope.dashboards.push({label:'Coordonnées Bancaires', dash:datas, row:1, icone:'credit.svg'});
+		           		dashboard.dash = datas;
+		           		delete dashboard.loading;
 		           })
 	}
 	var getUserFai = function() {
+		var dashboard = {label:'FAI', dash:{}, loading:true, row:1, icone:'fai.svg'}
+		$scope.dashboards.push(dashboard);
 		dataService.getFromDataset('FAI_Contact')
 		           .then(function(datas) {
-		           		$scope.dashboards.push({label:'FAI', dash:datas, row:1, icone:'fai.svg'});
+		           		dashboard.dash = datas;
+		           		delete dashboard.loading;
 		           })
 	}
 	var getUserCasier = function() {
+		var dashboard = {label:'Casier Judiciaire', dash:{}, loading:true, row:1, icone:'casier.svg'}
+		$scope.dashboards.push(dashboard);
 		dataService.getFromDataset('MJ_Casier')
 		           .then(function(datas) {
-		           		$scope.dashboards.push({label:'Casier Judiciaire', dash:datas, row:1, icone:'casier.svg'});
+		           		dashboard.dash = datas;
+		           		delete dashboard.loading;
 		           })
 	}
 	var getUserAcossSituationPro = function() {
+		var dashboard = {label:'Situation professionnelle', dash:{}, loading:true, row:2, icone:'casier.svg'}
+		$scope.dashboards.push(dashboard);
 		dataService.getFromDataset('ACOSS_SituationPro')
 		           .then(function(datas) {
-		           		$scope.dashboards.push({label:'Situation professionnelle', dash:datas, row:2, icone:'casier.svg'});
+		           		dashboard.dash = datas;
+		           		delete dashboard.loading;
 		           })
 	}
 

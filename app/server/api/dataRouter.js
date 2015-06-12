@@ -13,7 +13,10 @@ router.get('/dataset/:dataset/', function(req,res) {
 	//MOCK
 	if (dataset == 'Banque_Coordonnees') {
 		getMockBanque().then(function(data) {
-			res.send(data);
+			// faux lag
+			setTimeout(function() {
+				res.send(data);
+			}, 2000);
 		});
 		return;
 	}
@@ -31,7 +34,10 @@ router.get('/dataset/:dataset/', function(req,res) {
 	}
 	if (dataset == 'ACOSS_SituationPro') {
 		getMockAcoss().then(function(data) {
-			res.send(data);	
+			// faux lag
+			setTimeout(function() {
+				res.send(data);	
+			}, 1000);
 		});
 		return;	
 	}
