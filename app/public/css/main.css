@@ -16,7 +16,7 @@ html, body {
 }
 
 .gridDashboard .deepBlue {
-  background: #6699FF;
+  background: #d75252;
 }
 
 .gridDashboard md-grid-tile md-grid-tile-footer {
@@ -39,4 +39,10 @@ md-content .gridDashboard {
 md-grid-tile {
 	border-radius:4px;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.shadow {
+	background: url("../images/bg_shadow.png") no-repeat scroll center 0 rgba(0, 0, 0, 0);
+	width:100%;
+	height:14px;
 }

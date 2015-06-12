@@ -1,5 +1,9 @@
 
-var dashboardCtrl = function($scope, $location){
+var dashboardCtrl = function($scope, $location, dataService){
+
+	var getLabVal = function(label, valeur) {
+		return {label: label, valeur: valeur};
+	}
 	var getUserIdentite = function() {
 		var identite={};
 		identite.civilite=getLabVal('Civilite', $scope.app.user.civilite);
@@ -8,27 +12,41 @@ var dashboardCtrl = function($scope, $location){
 	  	identite.birthdate=getLabVal('Date de naissance', $scope.app.user.birthdate);
 		identite.address=getLabVal('Adresse', $scope.app.user.address);
 		identite.phone=getLabVal('Téléphone', $scope.app.user.phone_number);
-		return identite;
+		$scope.dashboards.push({label:'Identité', dash:identite, row:2, icone:'profile.svg'});
 	}
 	var getUserBanque = function() {
-		var banque={};
-		banque.etablissement=getLabVal('Etablissement', 'First Fake Bank');
-	  	banque.bic=getLabVal('BIC', 'FFPAFRPP333');
-	  	banque.iban=getLabVal('IBAN', 'FR76 1333 0101 0202 0303 0406 682');
-		return banque;
+		dataService.getFromDataset('Banque_Coordonnees')
+		           .then(function(datas) {
+		           		$scope.dashboards.push({label:'Coordonnées Bancaires', dash:datas, row:1, icone:'credit.svg'});
+		           })
+	}
+	var getUserFai = function() {
+		dataService.getFromDataset('FAI_Contact')
+		           .then(function(datas) {
+		           		$scope.dashboards.push({label:'FAI', dash:datas, row:1, icone:'fai.svg'});
+		           })
+	}
+	var getUserCasier = function() {
+		dataService.getFromDataset('MJ_Casier')
+		           .then(function(datas) {
+		           		$scope.dashboards.push({label:'Casier Judiciaire', dash:datas, row:1, icone:'casier.svg'});
+		           })
+	}
+	var getUserAcossSituationPro = function() {
+		dataService.getFromDataset('ACOSS_SituationPro')
+		           .then(function(datas) {
+		           		$scope.dashboards.push({label:'Situation professionnelle', dash:datas, row:2, icone:'casier.svg'});
+		           })
 	}
 
-  	if (!$scope.app.authentified) {
-  		$location.path("/accueil");
-  	} else {
-  		$scope.dashboards=[];
-  		$scope.dashboards.push({label:'Identité', dash:getUserIdentite(), row:2, icone:'profile.svg'});
-  		$scope.dashboards.push({label:'Banque', dash:getUserBanque(), row:1, icone:'credit.svg'});
-  	}
+	$scope.dashboards=[];
+	getUserBanque();
+	getUserIdentite();
+	getUserFai();
+	getUserCasier();
+	getUserAcossSituationPro();
 }
 
-var getLabVal = function(label, valeur) {
-	return {label: label, valeur: valeur};
-}
+
 
 module.exports = dashboardCtrl;

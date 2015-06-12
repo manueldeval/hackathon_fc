@@ -7,24 +7,42 @@ var configTheme = function($mdThemingProvider) {
 	    .warnPalette('red');
 }
 var configRoutes = function($routeProvider) {
+
 	// Configure routes
 	$routeProvider
 	.when('/',{
 		templateUrl: 'views/dashboard.html',
-		controller: 'dashboardCtrl'
+		resolve: {
+			factory: checkAuthentified
+		}
 	})
 	.when('/accueil',{
-		templateUrl: 'views/accueil.html',
-		controller: 'accueilCtrl'
+		templateUrl: 'views/accueil.html'
 	})
 	.when('/view2',{
-		templateUrl: 'views/view2.html',
-		controller: 'ctrl2'
+		templateUrl: 'views/view2.html'
 	})
 	.otherwise({
 		redirectTo: '/accueil'
 	});
 }
+
+var checkAuthentified= function ($q, $rootScope, $location, loginService) {
+	if ($rootScope.app.authentified) {
+		console.log("utilisateur authentifié -> OK");
+        return true;
+    } else {
+    	var deferred = $q.defer();
+    	loginService.getUser().then(function(user) {
+            deferred.resolve(true);
+        })
+        .catch(function(err) {
+            deferred.reject();
+            console.log("utilisateur non authentifié -> KO");
+            $location.path("/accueil");
+        });
+    }
+};
 
 module.exports = {
 	configTheme : configTheme,

@@ -1,14 +1,16 @@
 
 var config = require('./utils/appconfig');
 var server = require('./server');
-var checkRouter = require('./api/checkrouter');
-var loginRouter = require('./api/loginrouter');
+var checkRouter = require('./api/checkRouter');
+var loginRouter = require('./api/loginRouter');
+var dataRouter = require('./api/dataRouter');
 var callbackRouter = require('./api/callbackRouter');
 //var redis = require('./utils/redis');
 
 // Enregistrement des api Rest
 server.use('/api', checkRouter);
 server.use('/auth', loginRouter);
+server.use('/data', dataRouter);
 server.use('/OpenIdFranceConnect', callbackRouter);
 
 // The server is now started.
