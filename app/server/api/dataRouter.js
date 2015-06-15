@@ -84,13 +84,13 @@ var getMockCasier = function() {
 var getMockAcoss = function() {
 	var acoss={}
 	acoss.nir=getLabVal("NIR", "2651075879048 43");
-	acoss.situation=getLabVal("Situation professeionnelle en cours", "Salarié");
+	acoss.situation=getLabVal("Situation professionnelle en cours", "Salarié");
 	acoss.motifArret=getLabVal("Motif arrêt travail", "Congés suite à accident de travail ou de service");
 	acoss.dateDernierJour=getLabVal("Date dernier jour travaillé", "3 mars 2015");
 	acoss.dateFinArret=getLabVal("Date fin arrêt prévisionnel", "1 juin 2015");
 	acoss.salaireM1=getLabVal("Salaire net mois M-1", "3 500");
-	acoss.salaireM2=getLabVal("Salaire net mois M-1", "3 500");
-	acoss.salaireM3=getLabVal("Salaire net mois M-1", "3 500");
+	acoss.salaireM2=getLabVal("Salaire net mois M-2", "3 500");
+	acoss.salaireM3=getLabVal("Salaire net mois M-3", "3 500");
 	return Q.resolve(acoss);
 }
 

@@ -15,8 +15,13 @@ html, body {
 	min-height:100%;
 }
 
-.gridDashboard .deepBlue {
-  background: #d75252;
+.gridDashboard .dashboard {
+  background: #d2e5e0;
+}
+
+.gridDashboard .dashlabel {
+  background-color:rgba(190, 209, 204, 0.8);
+  border-radius:4px;
 }
 
 .gridDashboard md-grid-tile md-grid-tile-footer {
@@ -25,11 +30,13 @@ html, body {
 }
 
 .gridDashboard .bloc {
-	color: #fff;
+	color: #000;
     height: 100%;
     line-height: 2em;
     padding: 5px;
     width: 100%;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial;
+    font-size:0.9em;
 }
 
 md-content .gridDashboard {

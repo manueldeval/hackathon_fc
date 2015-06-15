@@ -10,9 +10,9 @@
                   md-rowspan="{{dashboard.row}}"
                   md-colspan="1"
                   md-colspan-sm="1"
-                  ng-class="{'test':dashboard.loading, 'deepBlue':!dashboard.loading}" >
-        <div layout="column" class="bloc">{{dashboard.loading}}
-        	<span ng-repeat="labVal in dashboard.dash">{{labVal.label}} : {{labVal.valeur}}</span><br/>
+                  ng-class="{'test':dashboard.loading, 'dashboard':!dashboard.loading}" >
+        <div layout="column" class="bloc">
+        	<div layout="row" style="padding:1px" layout-align="start center" ng-repeat="labVal in dashboard.dash"><div>{{labVal.label}} :&nbsp;</div><div class="dashLabel">&nbsp;{{labVal.valeur}}&nbsp;</div></div>
         </div>
       <md-grid-tile-footer><h3><md-icon md-svg-icon="images/{{dashboard.icone}}" class="s12" style="color:white"></md-icon> {{dashboard.label}}</h3></md-grid-tile-footer>
     </md-grid-tile>
