@@ -22,6 +22,41 @@ html, body {
 .gridDashboard .dashlabel {
   background-color:rgba(190, 209, 204, 0.8);
   border-radius:4px;
+  color:#369;
+}
+
+.gridDashboard .dashBack:before {
+  	content:' ';
+  	display:block;
+  	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.05;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    -ms-background-size: contain;
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+.gridDashboard .identite:before {
+    background-image: url('../images/profile.svg');
+}
+.gridDashboard .banque:before {
+    background-image: url('../images/credit.svg');
+}
+.gridDashboard .fai:before {
+    background-image: url('../images/fai.svg');
+}
+.gridDashboard .casier:before {
+    background-image: url('../images/casier.svg');
+}
+.gridDashboard .situPro:before {
+    background-image: url('../images/travail.svg');
 }
 
 .gridDashboard md-grid-tile md-grid-tile-footer {
