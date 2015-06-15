@@ -1,4 +1,4 @@
-var accueilCtrl = function($scope, $location){
+var accueilCtrl = function($scope){
 	
 }
 
