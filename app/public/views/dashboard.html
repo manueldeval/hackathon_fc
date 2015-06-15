@@ -14,7 +14,7 @@
                   class="dashBack {{dashboard.id}}"
                   ng-class="{'test':dashboard.loading, 'dashboard':!dashboard.loading}" >
         
-        <div ng-include="'views/dashboards/' + dashboard.id + '.html'" layout="column" class="bloc"></div>
+        <div ng-include="'views/dashboards/' + dashboard.id + '.html'" layout="column" class="bloc" dynamic-ctrl="dashboard.id + 'DashboardCtrl'"></div>
       
         <md-grid-tile-footer>
           <h3>

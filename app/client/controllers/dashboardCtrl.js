@@ -1,6 +1,5 @@
 
 var dashboardCtrl = function($scope, $location, dataService){
-
 	var getLabVal = function(label, valeur) {
 		return {label: label, valeur: valeur};
 	}
