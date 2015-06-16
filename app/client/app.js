@@ -1,6 +1,6 @@
 var config = require('./config/config');
 
-var app = angular.module('app', ['ngRoute','ngMaterial']);
+var app = angular.module('app', ['ngRoute','ngMaterial', 'ui.sortable']);
 
 // DIRECTIVES
 app.directive('dynamicCtrl', ['$compile', '$parse', require('./directives/dynamicCtrlDirective')]);

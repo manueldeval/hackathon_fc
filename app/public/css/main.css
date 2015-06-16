@@ -15,8 +15,8 @@ html, body {
 	min-height:100%;
 }
 
-.gridDashboard .dashboard {
-  background: #d2e5e0;
+.gridDashboard {
+  margin:3px;
 }
 
 .gridDashboard .dashlabel {
@@ -25,62 +25,70 @@ html, body {
   color:#369;
 }
 
-.gridDashboard .dashBack:before {
-  	content:' ';
-  	display:block;
-  	position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+.gridDashboard .bloc img {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: auto;
+    height: 90%;
     opacity: 0.05;
-    background-repeat: no-repeat;
-    background-position: 100% 100%;
-    -ms-background-size: contain;
-    -o-background-size: contain;
-    -moz-background-size: contain;
-    -webkit-background-size: contain;
-    background-size: contain;
 }
-.gridDashboard .identite:before {
-    background-image: url('../images/profile.svg');
-}
-.gridDashboard .banque:before {
-    background-image: url('../images/credit.svg');
-}
-.gridDashboard .fai:before {
-    background-image: url('../images/fai.svg');
-}
-.gridDashboard .casier:before {
-    background-image: url('../images/casier.svg');
-}
-.gridDashboard .situPro:before {
-    background-image: url('../images/travail.svg');
+.as-sortable-dragging img {
+      position: absolute;
+    right: 10px;
+    top: 5px;
+    width: auto;
+    height: 90%;
+    opacity: 0.05;
+
 }
 
-.gridDashboard md-grid-tile md-grid-tile-footer {
+.gridDashboard .bloc .footer {
   background: rgba(0, 0, 0, 0.68);
   height: 36px;
+  color:#FFFFFF;
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  vertical-align: middle;
+}
+.as-sortable-dragging .footer {
+  background: rgba(0, 0, 0, 0.68);
+  height: 36px;
+  color:#FFFFFF;
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  vertical-align: middle;
 }
 
 .gridDashboard .bloc {
+  background-color: #d2e5e0;
 	color: #000;
-    height: 100%;
-    line-height: 2em;
-    padding: 5px;
-    width: 100%;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial;
-    font-size:0.9em;
+  height: 100%;
+  line-height: 2em;
+  width: 100%;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial;
+  font-size:0.9em;
+  position: relative;
+  border-radius:4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  padding:12px;
 }
-
-md-content .gridDashboard {
-	background-color: rgba(0,0,0,0);
-}
-
-md-grid-tile {
-	border-radius:4px;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+.as-sortable-dragging .bloc {
+  background-color: #d2e5e0;
+  color: #000;
+  height: 100%;
+  line-height: 2em;
+  width: 100%;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial;
+  font-size:0.9em;
+  position: relative;
+  border-radius:4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  padding:12px;
 }
 
 .shadow {

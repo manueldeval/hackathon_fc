@@ -50,9 +50,13 @@ var dashboardCtrl = function($scope, $location, dataService){
 		           })
 	}
 
+	$scope.dragControlListeners = {
+	    containment: '#sortable-container'
+	};
+
 	$scope.dashboards=[];
-	getUserBanque();
 	getUserIdentite();
+	getUserBanque();
 	getUserFai();
 	getUserCasier();
 	getUserAcossSituationPro();
