@@ -32,6 +32,9 @@ var dataService = function() {
 									return result.data;
 								}
 							})
+			},
+			saveDashboardConfig: function(dashboards) {
+				return $http.post('/data/dashboard', dashboards)
 			}
 		}
 	}]

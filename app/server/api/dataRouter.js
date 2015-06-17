@@ -2,10 +2,33 @@ var Q = require('q');
 var express    = require('express');
 var passport = require('passport');
 var config = require('../utils/appconfig');
-var router = express.Router(); 
+var router = express.Router();
+var redis = require('../utils/redis');
+
+var REDIS_CONFIG_DASHBOARD_KEY = "dashboards";
+var defaultRedisConfig = [{id:'identite', show:true},
+	             		  {id:'banque', show:true},
+	              		  {id:'fai', show:true},
+	             		  {id:'casier', show:true},
+	             	      {id:'situPro', show:true}];
 
 router.get('/dashboards', function(req,res) {
-	res.send([{id:'identite'},{id:'banque'},{id:'fai'},{id:'casier'},{id:'situPro'}]);
+	var user = req.session.passport.user._json;
+	redis.hget(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, function(err, dashboards) {
+		if (err) {
+			res.send(defaultRedisConfig);
+		}
+		res.send(dashboards);
+	})
+});
+
+router.post('/dashboard', function(req, res) {
+	var body = req.body;
+	var user = req.session.passport.user._json;
+
+	//identifiant utilisateur à redéfinir
+	redis.hset(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, JSON.stringify(body));
+	res.status(200).send();
 });
 
 router.get('/dataset/:dataset/', function(req,res) {
