@@ -4,6 +4,9 @@ var passport = require('passport');
 var config = require('../utils/appconfig');
 var router = express.Router(); 
 
+router.get('/dashboards', function(req,res) {
+	res.send([{id:'identite'},{id:'banque'},{id:'fai'},{id:'casier'},{id:'situPro'}]);
+});
 
 router.get('/dataset/:dataset/', function(req,res) {
 	var dataset = req.params.dataset;

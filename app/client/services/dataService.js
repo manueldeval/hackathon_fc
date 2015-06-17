@@ -24,6 +24,14 @@ var dataService = function() {
 									return result.data;
 								}
 							})
+			},
+			getDashboardsList: function() {
+				return $http.get('/data/dashboards')
+							.then(function(result) {
+								if (result.data) {
+									return result.data;
+								}
+							})
 			}
 		}
 	}]

@@ -64,15 +64,16 @@ html, body {
   max-height:300px;
 }
 
+.as-sortable-dragging .dashboardLoading,
+.gridDashboard .dashboardLoading {
+  background: url("../images/ajax-loader.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+  background-color:#E0E0E0;
+}
+
 .shadow {
 	background: url("../images/bg_shadow.png") no-repeat scroll center 0 rgba(0, 0, 0, 0);
 	width:100%;
 	height:14px;
-}
-
-.test {
-	background: url("../images/ajax-loader.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
-	background-color:#E0E0E0;
 }
 
 .as-sortable-item {

@@ -8,8 +8,8 @@
   <div class="gridDashboard" layout="row" layout-align="space-between start">
 
     <div layout="row" layout-wrap data-as-sortable="dragControlListeners" data-ng-model="dashboards" style="width:100%" >
-      <div ng-repeat="dashboard in dashboards"  ng-class="{'test':dashboard.loading, 'dashboard':!dashboard.loading}" flex="30"  data-as-sortable-item ng-if="dashboard.show">
-        <div class="bloc" >
+      <div ng-repeat="dashboard in dashboards" flex="30"  data-as-sortable-item ng-if="dashboard.show">
+        <div class="bloc" ng-class="{'dashboardLoading':dashboard.loading}" >
           <img src="images/{{dashboard.icone}}"/>
           <div ng-include="'views/dashboards/' + dashboard.id + '.html'" layout="column" dynamic-ctrl="dashboard.id + 'DashboardCtrl'" ></div>
           <div class="footer" layout="row" layout-align="space-between center">

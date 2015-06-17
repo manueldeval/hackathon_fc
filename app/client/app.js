@@ -15,11 +15,11 @@ app.controller('globalCtrl', ['$scope', '$rootScope', 'loginService', require('.
 app.controller('dashboardCtrl', ['$scope', '$location', 'dataService', require('./controllers/dashboardCtrl')]);
 app.controller('loginCtrl', ['$scope', '$window', 'loginService', require('./controllers/loginCtrl')]);
 
-app.controller('banqueDashboardCtrl', ['$scope', require('./controllers/dashboards/banqueDashboardCtrl')]);
-app.controller('casierDashboardCtrl', ['$scope', require('./controllers/dashboards/casierDashboardCtrl')]);
-app.controller('faiDashboardCtrl', ['$scope', require('./controllers/dashboards/faiDashboardCtrl')]);
-app.controller('identiteDashboardCtrl', ['$scope', require('./controllers/dashboards/identiteDashboardCtrl')]);
-app.controller('situProDashboardCtrl', ['$scope', require('./controllers/dashboards/situProDashboardCtrl')]);
+app.controller('banqueDashboardCtrl', ['$scope', 'dataService', require('./controllers/dashboards/banqueDashboardCtrl')]);
+app.controller('casierDashboardCtrl', ['$scope', 'dataService', require('./controllers/dashboards/casierDashboardCtrl')]);
+app.controller('faiDashboardCtrl', ['$scope', 'dataService', require('./controllers/dashboards/faiDashboardCtrl')]);
+app.controller('identiteDashboardCtrl', ['$scope', 'dataService', require('./controllers/dashboards/identiteDashboardCtrl')]);
+app.controller('situProDashboardCtrl', ['$scope', 'dataService', require('./controllers/dashboards/situProDashboardCtrl')]);
 
 
 app.config(['$mdThemingProvider', config.configTheme]);

@@ -1,4 +1,14 @@
-var banqueDashboardCtrl = function($scope){
+var banqueDashboardCtrl = function($scope, dataService){
+
+	var getUserBanque = function() {
+		$scope.dashboard.loading = true;
+		dataService.getFromDataset('Banque_Coordonnees')
+		           .then(function(datas) {
+		           		$scope.dashboard.dash = datas;
+		           		delete $scope.dashboard.loading;
+		           })
+	}
+	getUserBanque();
 }
 
 module.exports = banqueDashboardCtrl;
