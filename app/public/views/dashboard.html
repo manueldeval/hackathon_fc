@@ -1,7 +1,7 @@
 <div ng-controller="dashboardCtrl">
-  <div layout="row" layout-align="center center">
-    <div ng-repeat="dashboard in dashboards" ng-if="!dashboard.show">
-      <md-icon md-svg-icon="images/{{dashboard.icone}}" style="color:black" ng-click="toggleDashboard(dashboard)"></md-icon>
+  <div layout="column" style="position:absolute; left:0; top:23px;">
+    <div ng-repeat="dashboard in dashboards" ng-if="!dashboard.show" class="dashVignette">
+      <md-icon md-svg-icon="images/{{dashboard.icone}}" style="color:black; cursor:pointer" ng-click="toggleDashboard(dashboard)"></md-icon>
     </div>
   </div>
 
@@ -18,7 +18,7 @@
             </h3>
             <div flex></div>
             <div style="margin:2 10 0 0" layout="row">
-              <md-icon md-svg-icon="images/minus.svg" style="color:white" ng-click="toggleDashboard(dashboard)"></md-icon>&nbsp;
+              <md-icon md-svg-icon="images/minus.svg" style="color:white; cursor:pointer" ng-click="toggleDashboard(dashboard)" ></md-icon>&nbsp;
               <div data-as-sortable-item-handle>
                 <md-icon md-svg-icon="images/move.svg" style="color:white"></md-icon>
               </div>
