@@ -43,6 +43,10 @@ var _genericAccessGet = function(accessToken,dataSet){
 							obj.label = _capitalizeFirstLetter(obj.key.replace(/_/g,' '));
 							return obj;
 						})
+					console.log("========",dataSet);
+					console.log("[",dataSet);
+					userObject.forEach(function(o){console.log("{ id:'"+o.key+"', modifiable:true },")});
+					console.log("]",dataSet);
 					resolve(userObject);
 				}
 		    });

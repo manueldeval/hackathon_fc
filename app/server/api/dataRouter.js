@@ -13,7 +13,8 @@ var defaultRedisConfig = [{id:'identite', show:true},
 	              		  {id:'fai', show:true},
 	             		  {id:'casier', show:true},
 	             	      {id:'situPro', show:true},
-	             	      {id:'caf',show:true}];
+	             	      {id:'caf',show:true},
+	             	      {id:'dgfip_rp',show:true}];
 
 router.get('/dashboards', function(req,res) {
 	if (req.session.passport.user) {
@@ -35,7 +36,6 @@ router.get('/dashboards', function(req,res) {
 					return definedWidget;
 				}
 			});
-			console.log(userDashboard)
 			res.send(userDashboard);
 			return;
 		})
