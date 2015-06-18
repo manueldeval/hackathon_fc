@@ -16,8 +16,6 @@ router.get('/dashboards', function(req,res) {
 	if (req.session.passport.user) {
 		var user = req.session.passport.user._json;
 		redis.hget(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, function(err, dashboards) {
-			console.log("err ==> " , err);
-			console.log("dashboards ==> " , dashboards);
 			if (err) {
 				res.send(defaultRedisConfig);
 				return;

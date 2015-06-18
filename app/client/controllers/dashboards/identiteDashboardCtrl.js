@@ -1,4 +1,4 @@
-var identiteDashboardCtrl = function($scope, dataService){
+var identiteDashboardCtrl = function($scope, $q, dataService){
 	
 	var getLabVal = function(label, valeur) {
 		return {label: label, valeur: valeur};
@@ -6,6 +6,7 @@ var identiteDashboardCtrl = function($scope, dataService){
 
 	var getUserIdentite = function() {
 		var identite={};
+
 		identite.civilite=getLabVal('Civilite', $scope.app.user.civilite);
 	  	identite.nom=getLabVal('Nom', $scope.app.user.family_name);
 	  	identite.prenom=getLabVal('Prénom', $scope.app.user.given_name);
@@ -13,6 +14,7 @@ var identiteDashboardCtrl = function($scope, dataService){
 		identite.address=getLabVal('Adresse', $scope.app.user.address);
 		identite.phone=getLabVal('Téléphone', $scope.app.user.phone_number);
 		$scope.dashboard.dash=identite;
+		$scope.dashboard.loaded.resolve();
 	}
 
 	getUserIdentite();

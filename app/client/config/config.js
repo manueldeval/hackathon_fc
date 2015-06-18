@@ -12,9 +12,9 @@ var configRoutes = function($routeProvider) {
 	$routeProvider
 	.when('/',{
 		templateUrl: 'views/dashboard.html',
-		resolve: {
-			factory: checkAuthentified
-		}
+		// resolve: {
+		// 	factory: checkAuthentified
+		// }
 	})
 	.when('/accueil',{
 		templateUrl: 'views/accueil.html'

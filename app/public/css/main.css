@@ -95,3 +95,7 @@ html, body {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   padding:3px;
 }
+
+.alerteVignette {
+  background-color:rgba(255, 0, 0, 0.6);
+}
