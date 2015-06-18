@@ -13,22 +13,35 @@ var defaultRedisConfig = [{id:'identite', show:true},
 	             	      {id:'situPro', show:true}];
 
 router.get('/dashboards', function(req,res) {
-	var user = req.session.passport.user._json;
-	redis.hget(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, function(err, dashboards) {
-		if (err) {
-			res.send(defaultRedisConfig);
-		}
-		res.send(dashboards);
-	})
+	if (req.session.passport.user) {
+		var user = req.session.passport.user._json;
+		redis.hget(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, function(err, dashboards) {
+			if (err) {
+				res.send(defaultRedisConfig);
+				return;
+			}
+			res.send(dashboards);
+			return;
+		})
+	} else {
+		res.send(defaultRedisConfig);
+		return;
+	}
 });
 
 router.post('/dashboard', function(req, res) {
-	var body = req.body;
-	var user = req.session.passport.user._json;
+	if (req.session.passport.user) {
+		var body = req.body;
+		var user = req.session.passport.user._json;
 
-	//identifiant utilisateur à redéfinir
-	redis.hset(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, JSON.stringify(body));
-	res.status(200).send();
+		//identifiant utilisateur à redéfinir
+		redis.hset(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, JSON.stringify(body));
+		res.status(200).send();
+		return;
+	} else {
+		res.status(200).send();
+		return;
+	}
 });
 
 router.get('/dataset/:dataset/', function(req,res) {
