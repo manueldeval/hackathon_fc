@@ -32,11 +32,10 @@ var dashboardCtrl = function($scope, $location, $q, dataService){
 		 	var faiAdresse = _.where(fai, {label : 'adresse'});
 		 	var identiteAdresse = _.where(identite, {label : 'address'});
 		 	if (faiAdresse != identiteAdresse) {
-		 		if (!$scope.alertes.fai) {
-		 			$scope.alertes.fai=[]
+		 		if (!fai.alertes) {
+		 			fai.alertes=[]
 		 		}
-		 		console.log($scope.alertes);
-		 		$scope.alertes.fai.push("Incohérence sur l'adresse");
+		 		fai.alertes.push("Incohérence sur l'adresse");
 		 	}
 		})
 	}
@@ -55,7 +54,6 @@ var dashboardCtrl = function($scope, $location, $q, dataService){
 	};
 
 	$scope.dashboards=[];
-	$scope.alertes={};
 	getDashboardsList().then(startChecks);
 
 	$scope.toggleDashboard = function(dashboard) {
@@ -63,7 +61,5 @@ var dashboardCtrl = function($scope, $location, $q, dataService){
 		saveConfigDashboards();
 	}
 }
-
-
 
 module.exports = dashboardCtrl;
