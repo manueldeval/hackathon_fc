@@ -34,19 +34,21 @@ var _genericAccessGet = function(accessToken,dataSet){
 		      		!responseObject.records[0].fields){
 		      		reject("No data");
 		      	} else {
-					var userObject = responseObject.records[0].fields;
-					userObject = Object.keys(userObject)
-						.map(function(key){
-							return {key:key,valeur:userObject[key]}
+					var payloadFromODS = responseObject.records[0].fields;
+
+					var userObject = {};
+					Object.keys(payloadFromODS)
+						.forEach(function(key){
+							userObject[key] = {
+								valeur:payloadFromODS[key],
+								label : _capitalizeFirstLetter(key.replace(/_/g,' '))
+							}
+							return userObject;
 						})
-						.map(function(obj){
-							obj.label = _capitalizeFirstLetter(obj.key.replace(/_/g,' '));
-							return obj;
-						})
-					console.log("========",dataSet);
-					console.log("[",dataSet);
-					userObject.forEach(function(o){console.log("{ id:'"+o.key+"', modifiable:true },")});
-					console.log("]",dataSet);
+					//console.log("========",dataSet);
+					//console.log("[",dataSet);
+					//userObject.forEach(function(o){console.log("{ id:'"+o.key+"', modifiable:true },")});
+					//console.log("]",dataSet);
 					resolve(userObject);
 				}
 		    });

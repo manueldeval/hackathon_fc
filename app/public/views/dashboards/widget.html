@@ -1,4 +1,11 @@
+<div layout="row" style="padding:1px" layout-align="start center" ng-repeat="field in dashboard.fields">
+	<div>{{dashboard.dash[field.id].label}} :&nbsp;</div>
+	
+	<div class="dashLabel">&nbsp;{{dashboard.dash[field.id].valeur}}&nbsp;</div>
+</div>
+<!--
 <div layout="row" style="padding:1px" layout-align="start center" ng-repeat="labVal in dashboard.dash">
 	<div>{{labVal.label}} :&nbsp;</div>
 	<div class="dashLabel">&nbsp;{{labVal.valeur}}&nbsp;</div>
 </div>
+-->

@@ -4,16 +4,17 @@ var definitions =[{
 	icone:'profile.svg',
 	dataset:'identite_pivot',
 	fields:[
-		{ id:'identifiant_bouchon_ameli', modifiable:true },
-		{ id:'sexe', modifiable:true },
-		{ id:'date_de_naissance', modifiable:true },
 		{ id:'nom_d_usage', modifiable:true },
 		{ id:'nom_de_naissance', modifiable:true },
+		{ id:'prenoms', modifiable:true },
+		{ id:'sexe', modifiable:true },
+
+		//{ id:'identifiant_bouchon_ameli', modifiable:true },
+		{ id:'date_de_naissance', modifiable:true },
 		//{ id:'identifiant_bouchon_dgfip', modifiable:true },
 		//{ id:'mot_de_passe_bouchon_dgfip', modifiable:true },
 		//{ id:'mot_de_passe_bouchon_ameli', modifiable:true },
 		{ id:'lieu_de_naissance', modifiable:true },
-		{ id:'prenoms', modifiable:true },
 		{ id:'pays_de_naissance', modifiable:true }
 	]
 }, {
