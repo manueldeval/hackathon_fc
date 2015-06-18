@@ -14,7 +14,7 @@
         <div class="bloc" ng-class="{'dashboardLoading':dashboard.loading}"  >
           <div style="overflow:auto;height:90%;z-index:90000;" >
             <img src="images/{{dashboard.icone}}"/>
-            <div ng-include="'views/dashboards/' + dashboard.id + '.html'" layout="column" dynamic-ctrl="dashboard.id + 'DashboardCtrl'" ></div>
+            <div ng-include="'views/dashboards/' + dashboard.id + '.html'" layout="column" ng-controller="widgetCtrl" ></div>
           </div>
           <!-- footer de la widget -->
           <div class="footer" layout="row" layout-align="space-between center">
