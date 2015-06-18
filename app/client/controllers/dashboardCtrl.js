@@ -35,7 +35,9 @@ var dashboardCtrl = function($scope, $location, $q, dataService){
 		 		if (!fai.alertes) {
 		 			fai.alertes=[]
 		 		}
-		 		fai.alertes.push("Incohérence sur l'adresse");
+		 		if (fai.alertes.indexOf("Incohérence sur l'adresse") < 0) {
+		 			fai.alertes.push("Incohérence sur l'adresse");
+		 		}
 		 	}
 		})
 	}

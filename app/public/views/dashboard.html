@@ -23,13 +23,18 @@
               <md-icon md-svg-icon="images/{{dashboard.icone}}" class="s12" style="color:white"></md-icon> {{dashboard.label}}
             </h3>
             <div flex></div>
-            <div style="margin:2 10 0 0; padding:5px" layout="row">
+            <div style="margin:2 10 0 0; padding:5px" layout="row" layout-align="space-between center">
+              <!-- alertes -->
               <div ng-if="dashboard.alertes">
                 <md-icon md-svg-icon="images/exclamation.svg" style="color:rgba(255, 165, 1, 1); cursor:pointer">
                 </md-icon>&nbsp;
                 <md-tooltip><span ng-repeat="alerte in dashboard.alertes">{{alerte}}</span></md-tooltip>
               </div>
+              <!-- edit -->
+              <a href="#/correction/{{dashboard.id}}"><md-icon md-svg-icon="images/edit.svg" style="color:rgb(108, 255, 91); cursor:pointer" class="s16"></md-icon></a>&nbsp;
+              <!-- hide -->
               <md-icon md-svg-icon="images/minus.svg" style="color:white; cursor:pointer" class="s16" ng-click="toggleDashboard(dashboard)" ></md-icon>&nbsp;
+              <!-- move -->
               <div data-as-sortable-item-handle>
                 <md-icon md-svg-icon="images/move.svg" style="color:white"></md-icon>
               </div>
