@@ -7,11 +7,16 @@
 
   <div class="gridDashboard" layout="row" layout-align="space-between start">
 
+    <!-- Container de tri-->
     <div layout="row" layout-wrap data-as-sortable="dragControlListeners" data-ng-model="dashboards" style="width:100%" >
+      <!-- container par widget-->
       <div ng-repeat="dashboard in dashboards" flex="30"  data-as-sortable-item ng-if="dashboard.show">
-        <div class="bloc" ng-class="{'dashboardLoading':dashboard.loading}" >
-          <img src="images/{{dashboard.icone}}"/>
-          <div ng-include="'views/dashboards/' + dashboard.id + '.html'" layout="column" dynamic-ctrl="dashboard.id + 'DashboardCtrl'" ></div>
+        <div class="bloc" ng-class="{'dashboardLoading':dashboard.loading}"  >
+          <div style="overflow:auto;height:90%;z-index:90000;" >
+            <img src="images/{{dashboard.icone}}"/>
+            <div ng-include="'views/dashboards/' + dashboard.id + '.html'" layout="column" dynamic-ctrl="dashboard.id + 'DashboardCtrl'" ></div>
+          </div>
+          <!-- footer de la widget -->
           <div class="footer" layout="row" layout-align="space-between center">
             <h3 style="margin:2 0 0 10">
               <md-icon md-svg-icon="images/{{dashboard.icone}}" class="s12" style="color:white"></md-icon> {{dashboard.label}}
@@ -28,6 +33,7 @@
                 <md-icon md-svg-icon="images/move.svg" style="color:white"></md-icon>
               </div>
             </div>
+          
           </div>
         </div>
       </div>
