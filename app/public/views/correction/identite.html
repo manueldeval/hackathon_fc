@@ -1,0 +1,8 @@
+<div style="padding-top:30px;" flex="70" >
+	<md-input-container ng-repeat="labVal in dashboard.dash" >
+	    <label>{{ labVal.label }}</label>
+	    <input ng-model="labVal.valeur" ng-required="true">
+  	</md-input-container>
+
+</div>
+
