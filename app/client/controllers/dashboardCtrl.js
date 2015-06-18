@@ -40,13 +40,17 @@ var dashboardCtrl = function($scope, $location, $q, dataService){
 		 	}
 		})
 	}
+	var saveConfigDashboards = function() {
+		var dashToSave = $scope.dashboards.map(function(dash) {
+			console.log(dash)
+	    	return {id: dash.id, show: dash.show, alertes: dash.alertes};
+	    })
+	    dataService.saveDashboardConfig(dashToSave);
+	}
 
 	$scope.dragControlListeners = {
 	    orderChanged: function(event) {
-	    	var dashToSave = $scope.dashboards.map(function(dash) {
-	    		return {id: dash.id, show: dash.show};
-	    	})
-	    	dataService.saveDashboardConfig(dashToSave);
+	    	saveConfigDashboards();
 	    }
 	};
 
@@ -56,10 +60,7 @@ var dashboardCtrl = function($scope, $location, $q, dataService){
 
 	$scope.toggleDashboard = function(dashboard) {
 		dashboard.show=!dashboard.show;
-		var dashToSave = $scope.dashboards.map(function(dash) {
-    		return {id: dash.id, show: dash.show};
-    	})
-    	dataService.saveDashboardConfig(dashToSave);
+		saveConfigDashboards();
 	}
 }
 

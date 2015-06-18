@@ -16,6 +16,12 @@ var configRoutes = function($routeProvider) {
 			factory: checkAuthentified
 		}
 	})
+	.when('/correction/:id',{
+		templateUrl: 'views/correction.html',
+		resolve: {
+			factory: checkAuthentified
+		}
+	})
 	.when('/accueil',{
 		templateUrl: 'views/accueil.html'
 	})
