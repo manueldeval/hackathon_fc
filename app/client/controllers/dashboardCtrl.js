@@ -1,44 +1,22 @@
-//var _ = require('lodash');
+var _ = require('lodash');
+var dashboardDef = require('./dashboardDef');
 
 var dashboardCtrl = function($scope, $location, $q, dataService){
 	
 	var getDashboardsList = function() {
 		return dataService.getDashboardsList()
 				   	.then(function(dashboards) {
-				   		return dashboards.map(function(dashboard) {
-				   			if (dashboard.id == 'identite') {
-				   				dashboard.label = 'Identité';
-				   				dashboard.dash={};
-				   				dashboard.icone='profile.svg';
-				   				dashboard.loaded = $q.defer();
-				   			}
-				   			if (dashboard.id == 'casier') {
-				   				dashboard.label = 'Casier Judiciaire';
-				   				dashboard.dash={};
-				   				dashboard.icone='casier.svg';
-				   				dashboard.loaded = $q.defer();
-				   			}
-				   			if (dashboard.id == 'situPro') {
-				   				dashboard.label = 'Situation professionnelle';
-				   				dashboard.dash={};
-				   				dashboard.icone='travail.svg';
-				   				dashboard.loaded = $q.defer();
-				   			}
-				   			if (dashboard.id == 'fai') {
-				   				dashboard.label = 'FAI';
-				   				dashboard.dash={};
-				   				dashboard.icone='fai.svg';
-				   				dashboard.loaded = $q.defer();
-				   			}
-				   			if (dashboard.id == 'banque') {
-				   				dashboard.label = 'Coordonnées Bancaires';
-				   				dashboard.dash={};
-				   				dashboard.icone='credit.svg';
-				   				dashboard.loaded = $q.defer();
-				   			}
-				   			return dashboard;
-				   		})
-				   		
+				    		return dashboards.map(function(dashboard) {
+				    			var currentId = dashboard.id;
+							 	var dashRef = _.find(dashboardDef, function(dash) {
+							   		return dash.id == currentId;
+							 	});
+							 	return _.assign(dashboard, dashRef);
+				    		}).map(function(dashboard) {
+				    			dashboard.dash={};
+							 	dashboard.loaded = $q.defer();
+				    			return dashboard;
+				    		}); 		
 				   	})
 				   	.then(function(dashboards) {
 						$scope.dashboards = dashboards;
