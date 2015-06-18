@@ -4,6 +4,7 @@ var passport = require('passport');
 var config = require('../utils/appconfig');
 var router = express.Router();
 var redis = require('../utils/redis');
+var ods = require('../utils/opendatasoft');
 
 var REDIS_CONFIG_DASHBOARD_KEY = "dashboards";
 var defaultRedisConfig = [{id:'identite', show:true},
@@ -54,6 +55,15 @@ router.get('/dataset/:dataset/', function(req,res) {
 	var dataset = req.params.dataset;
 	var q = req.query.q;
 	// Normalement appel pour récup les données
+	ods.getData(req.session.passport.user.accessToken,dataset.toLowerCase())
+		.then(function(data){
+			res.send(data);
+		})
+		.fail(function(err) {
+			res.status(404).send(err);
+		});
+    /*
+
 
 	//MOCK
 	if (dataset == 'Banque_Coordonnees') {
@@ -66,7 +76,8 @@ router.get('/dataset/:dataset/', function(req,res) {
 		return;
 	}
 	if (dataset == 'FAI_Contact') {
-		getMockFAI().then(function(data) {
+		ods.getData(req.session.passport.user.accessToken,'fai_contact')
+			.then(function(data){console.log(data);
 			res.send(data);
 		});
 		return;
@@ -86,7 +97,8 @@ router.get('/dataset/:dataset/', function(req,res) {
 		});
 		return;	
 	}
-	res.status(404).send();
+	*/
+	//res.status(404).send();
 });
 
 router.get('/datasets/:datasets/', function(req,res) {
