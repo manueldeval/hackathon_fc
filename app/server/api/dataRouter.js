@@ -8,6 +8,7 @@ var ods = require('../utils/opendatasoft');
 var _ = require('lodash');
 
 var REDIS_CONFIG_DASHBOARD_KEY = "dashboards";
+var REDIS_CONFIG_CORRECTION_KEY = "correction";
 var defaultRedisConfig = [{id:'identite', show:true},
 	             		  {id:'banque', show:true},
 	              		  {id:'fai', show:true},
@@ -15,6 +16,58 @@ var defaultRedisConfig = [{id:'identite', show:true},
 	             	      {id:'situPro', show:true},
 	             	      {id:'caf',show:true},
 	             	      {id:'dgfip_rp',show:true}];
+
+
+router.get('/corrections', function(req,res) {
+	if (req.session.passport.user) {
+		var user = req.session.passport.user._json;
+		redis.hget(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, function(err, dashboards) {
+			if (err) {
+				res.send(defaultRedisConfig);
+				return;
+			}
+			if (dashboards == null) {
+				res.send(defaultRedisConfig);
+				return;
+			}
+			res.send(dashboards);
+			return;
+		})
+	} else {
+		res.send(defaultRedisConfig);
+		return;
+	}
+});
+
+router.post('/corrections', function(req, res) {
+	if (req.session.passport.user) {
+		var body = req.body;
+		var user = req.session.passport.user._json;
+		//identifiant utilisateur à redéfinir
+	
+		
+		redis.hget(REDIS_CONFIG_CORRECTION_KEY, user.given_name + '$' + user.family_name, function(err, dashboards) {
+			var jsonValue = [];
+			if(dashboards !== null){
+				jsonValue = JSON.parse(dashboards);
+			}
+			
+			console.log(jsonValue)
+			jsonValue.push(body)
+			console.log(jsonValue)
+			jsonString = JSON.stringify(jsonValue)
+			redis.hset(REDIS_CONFIG_CORRECTION_KEY, user.given_name + '$' + user.family_name, jsonString);
+		});		
+		res.status(200).send();
+		return;
+	} else {
+		res.status(200).send();
+		return;
+	}
+});
+
+
+
 
 router.get('/dashboards', function(req,res) {
 	if (req.session.passport.user) {
