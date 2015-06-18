@@ -1,9 +1,8 @@
  <div layout="row" layout-wrap  >
-
-	<div ng-repeat="labVal in dashboard.dash"  style="padding-top:30px;" flex="50" >
+	<div  ng-repeat="field in dashboard.fields"  style="padding-top:30px;" flex="50" >
 		<md-input-container >
-		    <label>{{ labVal.label }}</label>
-		    <input ng-model="labVal.valeur" ng-required="true">
+		    <label>{{dashboard.dash[field.id].label}}</label>
+		    <input ng-model="dashboard.dash[field.id].valeur" ng-required="true">
 	  	</md-input-container>
 	</div>	
 </div>
@@ -13,5 +12,3 @@
  		<input id="#fileToUpload" type="file">
  	</md-input-container>
 </div>
-
-

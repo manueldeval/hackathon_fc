@@ -11,8 +11,10 @@
             <div flex></div>
           </div>
           <img src="images/{{dashboard.icone}}" style="height:300px;"/>
-          <div ng-include="'views/correction/' + dashboard.id + '.html'" ng-controller="widgetCtrl" ></div>
+          <div ng-include="'views/correction/widget.html'" ng-controller="widgetCtrl" ></div>
         	<div layout="row"><md-button class="md-raised" ng-click="saveCorrection($event)" >Envoyer la demande de correction</md-button></div>
+        	<div layout="row"><a href="#/">Retour</a>&nbsp;</div>
+        	
         	<div class="isa_success" ng-show="msgSave">
 			     <i class="fa fa-check"></i>
 			     Votre demande à bien été transmise au service concerné.
