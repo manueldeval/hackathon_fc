@@ -1,9 +1,9 @@
-var identiteDashboardCtrl = function($scope, $q, dataService){
-	
-	var getIdentite = function() {
+var widgetCtrl = function($scope, dataService){
+
+	var getData = function() {
 		$scope.dashboard.loading = true;
 
-		dataService.getFromDataset('identite_pivot')
+		dataService.getFromDataset($scope.dashboard.dataset)
 		           .then(function(datas) {
 		           		$scope.dashboard.dash = datas;
 		           		delete $scope.dashboard.loading;
@@ -11,7 +11,7 @@ var identiteDashboardCtrl = function($scope, $q, dataService){
 		           })
 	}
 
-	getIdentite();
+	getData();
 }
 
-module.exports = identiteDashboardCtrl;
+module.exports = widgetCtrl;
