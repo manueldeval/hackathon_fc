@@ -35,6 +35,20 @@ var dataService = function() {
 			},
 			saveDashboardConfig: function(dashboards) {
 				return $http.post('/data/dashboard', dashboards)
+			},
+			
+			
+			getCorrectionList: function() {
+				return $http.get('/data/corrections')
+							.then(function(result) {
+								if (result.data) {
+									return result.data;
+								}
+							})
+			},
+			saveCorrection: function(dashboards) {
+				console.log('test');
+				return $http.post('/data/corrections', dashboards)
 			}
 		}
 	}]

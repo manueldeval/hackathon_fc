@@ -108,3 +108,12 @@ html, body {
 md-tooltip {
   font-size:14px
 }
+
+.isa_success {
+	margin: 10px 0px;
+	padding:12px;
+}
+.isa_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
