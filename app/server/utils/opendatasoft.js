@@ -32,10 +32,8 @@ var _genericAccessGet = function(accessToken,dataSet){
 		      		responseObject.records.length == 0 ||
 		      		!responseObject.records[0] ||
 		      		!responseObject.records[0].fields){
-		      		console.log("no data ! for " + dataSet);
 		      		reject("No data");
 		      	} else {
-		      		console.log("found data ", responseObject.records[0].fields);
 					var userObject = responseObject.records[0].fields;
 					userObject = Object.keys(userObject)
 						.map(function(key){

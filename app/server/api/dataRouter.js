@@ -5,13 +5,15 @@ var config = require('../utils/appconfig');
 var router = express.Router();
 var redis = require('../utils/redis');
 var ods = require('../utils/opendatasoft');
+var _ = require('lodash');
 
 var REDIS_CONFIG_DASHBOARD_KEY = "dashboards";
 var defaultRedisConfig = [{id:'identite', show:true},
 	             		  {id:'banque', show:true},
 	              		  {id:'fai', show:true},
 	             		  {id:'casier', show:true},
-	             	      {id:'situPro', show:true}];
+	             	      {id:'situPro', show:true},
+	             	      {id:'caf',show:true}];
 
 router.get('/dashboards', function(req,res) {
 	if (req.session.passport.user) {
@@ -25,7 +27,16 @@ router.get('/dashboards', function(req,res) {
 				res.send(defaultRedisConfig);
 				return;
 			}
-			res.send(dashboards);
+			var userDashboard = defaultRedisConfig.map(function(definedWidget){
+				var existsInUserDash = _.find(dashboards,function(dash){ return dash.id == definedWidget.id });
+				if (existsInUserDash){
+					return existsInUserDash;
+				} else {
+					return definedWidget;
+				}
+			});
+			console.log(userDashboard)
+			res.send(userDashboard);
 			return;
 		})
 	} else {
