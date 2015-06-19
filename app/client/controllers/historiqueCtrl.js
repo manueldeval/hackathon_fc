@@ -11,6 +11,9 @@ var historiqueCtrl = function($scope, $location, dataService){
 	$scope.historique=[];
 	getHistorique();
 
+	$scope.go = function ( path ) {
+	  $location.path( path );
+	};
 }
 
 

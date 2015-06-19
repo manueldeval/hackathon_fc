@@ -1,5 +1,10 @@
 <div ng-controller="dashboardCtrl">
   <div layout="column" style="position:absolute; left:0; top:23px;">
+  	
+  	<div class="dashVignette" style="margin-bottom:50px;">
+      <a href="#/historique" ><md-icon md-svg-icon="images/history2.svg" style="color:black; cursor:pointer" ></md-icon></a>
+    </div>
+  	
     <div ng-repeat="dashboard in dashboards" ng-if="!dashboard.show" class="dashVignette" ng-class="{'alerteVignette':dashboard.alertes}">
       <md-icon md-svg-icon="images/{{dashboard.icone}}" style="color:black; cursor:pointer" ng-click="toggleDashboard(dashboard)" ></md-icon>
       <!-- <md-tooltip><span ng-repeat="alerte in dashboard.alertes">{{alerte}}</span></md-tooltip> -->
