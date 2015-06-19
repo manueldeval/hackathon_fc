@@ -4,7 +4,6 @@ var banqueCorrectionCtrl = function($scope, dataService){
 		$scope.dashboard.loading = true;
 		dataService.getFromDataset('Banque_Coordonnees')
 		           .then(function(datas) {
-		        	    console.log(datas)
 		           		$scope.dashboard.dash = datas;
 		           		delete $scope.dashboard.loading;
 		           })

@@ -45,10 +45,6 @@ var _genericAccessGet = function(accessToken,dataSet){
 							}
 							return userObject;
 						})
-					//console.log("========",dataSet);
-					//console.log("[",dataSet);
-					//userObject.forEach(function(o){console.log("{ id:'"+o.key+"', modifiable:true },")});
-					//console.log("]",dataSet);
 					resolve(userObject);
 				}
 		    });

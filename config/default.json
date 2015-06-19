@@ -26,7 +26,7 @@
     		"clientSecret": "FROM_ENVIRONMENT_VAR",
     		"callbackURL": "http://localhost:8080/OpenIdFranceConnect/login/oidc_callback",
     		"comment": ["profile", "email", "address", "phone", "openid"],
-    		"scope": ["profile", "email", "address", "phone", "openid","ods_caf_qf","ods_dgfip_rfr","ods_dgfip_rp","ods_dgef_demandenat","ods_men_eleves","ods_men_diplomes","ods_mj_casier","ods_ants_identite","ods_etatcivil_cnf","ods_fai_contact","ods_acoss_situationpro","banque_coordonnees"],
+    		"scope": ["profile", "email", "address", "phone", "openid","ods_caf_qf","ods_dgfip_rfr","ods_dgfip_rp","ods_men_diplomes","ods_mj_casier","ods_ants_identite","ods_etatcivil_cnf","ods_fai_contact","ods_acoss_situationpro","banque_coordonnees"],
     		"skipUserProfile":false
 		}
 	}
