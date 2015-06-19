@@ -47,8 +47,17 @@ var dataService = function() {
 							})
 			},
 			saveCorrection: function(dashboards) {
-				console.log('test');
 				return $http.post('/data/corrections', dashboards)
+			},
+			
+			getHistorique: function() {
+				return $http.get('/data/corrections')
+				.then(function(result) {
+					console.log(result);
+					if (result.data) {
+						return result.data;
+					}
+				})
 			}
 		}
 	}]
