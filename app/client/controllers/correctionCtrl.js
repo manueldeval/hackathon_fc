@@ -42,6 +42,10 @@ var correctionCtrl = function($scope, $location, $routeParams, $q, dataService){
 		dataService.saveCorrection($scope.dashboard);
 		
 	};
+	
+	$scope.go = function ( path ) {
+	  $location.path( path );
+	};
 
 }
 

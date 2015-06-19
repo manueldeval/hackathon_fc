@@ -1,5 +1,5 @@
  <div layout="row" layout-wrap  >
-	<div  ng-repeat="field in dashboard.fields"  style="padding-top:30px;" flex="50" >
+	<div  ng-repeat="field in dashboard.fields"   flex="50" >
 		<md-input-container >
 		    <label>{{dashboard.dash[field.id].label}}</label>
 		    <input ng-model="dashboard.dash[field.id].valeur" ng-required="true">
