@@ -10,18 +10,23 @@
             </h3>
             <div flex></div>
           </div>
-          
-          <div class="isa_success" ng-show="msgSave">
-		     <i class="fa fa-check"></i>
-		     Votre demande à bien été transmise au service concerné.
-       	  </div>
-          <img src="images/{{dashboard.icone}}" style="height:300px;"/>
-          <div ng-include="'views/correction/widget.html'" ng-controller="widgetCtrl" ></div>
-        	<div layout="row">
-        		<md-button class="md-raised" ng-click="saveCorrection($event)" >Envoyer la demande de correction</md-button>
-        		<md-button class="md-raised md-warn" ng-click="go('/')">Annuler</md-button>
-        	</div>
-        	
+          <div  ng-show="msgSave">
+	          <div class="isa_success">
+			     <i class="fa fa-check"></i>
+			     Votre demande à bien été transmise au service concerné.
+	       	  </div>
+	      	   <div layout="row">
+	        		<md-button class="md-raised md-warn" ng-click="go('/historique')">Continuer</md-button>
+	          </div>
+          </div>
+       	  <div ng-hide="msgSave">
+	          <img src="images/{{dashboard.icone}}" style="height:300px;"/>
+	          <div ng-include="'views/correction/widget.html'" ng-controller="widgetCtrl" ></div>
+	        	<div layout="row">
+	        		<md-button class="md-raised" ng-click="saveCorrection($event)" >Envoyer la demande de correction</md-button>
+	        		<md-button class="md-raised md-warn" ng-click="go('/')">Annuler</md-button>
+	        	</div>
+          </div>
 
         </div>
         
