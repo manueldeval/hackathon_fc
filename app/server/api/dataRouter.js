@@ -15,6 +15,8 @@ var defaultRedisConfig = [{id:'identite', show:true},
 	             		  {id:'casier', show:true},
 	             	      {id:'situPro', show:true},
 	             	      {id:'caf',show:true},
+	             	      {id:'ants_identite',show:true},
+	             	      {id:'men_diplomes',show:true},
 	             	      {id:'dgfip_rp',show:true}];
 
 

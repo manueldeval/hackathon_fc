@@ -28,7 +28,7 @@ var definitions =[{
 		{ id:'sexe', modifiable:true },
 		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
 		{ id:'lieu_de_naissance', label:"Lieu de naissance", modifiable:true },
-		{ id:'pays_de_naissance', label:"Pays de naissance",modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance", modifiable:true },
 		{ id:'existence_d_une_mention_au_bulletin_b2', label:"Mention au B2", modifiable:true },
 		{ id:'existence_d_une_mention_au_bulletin_b3', label:"Mention au B3", modifiable:true },
 		{ id:'hypothese', modifiable:true }
@@ -124,6 +124,43 @@ var definitions =[{
 		{ id:'codepostal', modifiable:true },
 		{ id:'commune', modifiable:true },
 		{ id:'hypothese_dgfip_rp', label:"Hypothèse DGFIP", modifiable:true }
+	]
+},{
+	id: 'ants_identite',
+	label : "Pièces d'identité",
+	icone:'identite.svg',
+	dataset:'ants_identite',
+	fields:[
+		{ id:'nom_de_naissance', label:"Nom de naissance", modifiable:true },
+		{ id:'prenoms', modifiable:true },
+		{ id:'sexe', modifiable:true },
+		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
+		{ id:'lieu_de_naissance', label:"Lieu de naissance", modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance", modifiable:true },
+		{ id:'numero_cni', label:"N° CNI", modifiable:true },
+		{ id:'date_delivrance_cni', label:"Date CNI", modifiable:true },
+		{ id:'numero_passeport', label:"N° Passeport", modifiable:true },
+		{ id:'date_delivrance_passeport', label:"Date passport", modifiable:true },
+		{ id:'couleur_des_yeux', label:"Couleur des yeux", modifiable:true },
+		{ id:'taille', label:"Taille", modifiable:true },
+		{ id:'hypothese_documents_d_identite', label:"Hypothese", modifiable:true }
+	]
+},{
+	id: 'men_diplomes',
+	label : "Diplômes",
+	icone:'graduate.svg',
+	dataset:'men_diplomes',
+	fields:[
+		{ id:'nom_de_naissance', label:"Nom de naissance", modifiable:true },
+		{ id:'prenoms', modifiable:true },
+		{ id:'sexe', modifiable:true },
+		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
+		{ id:'lieu_de_naissance', label:"Lieu de naissance", modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance", modifiable:true },
+		{ id:'mention', modifiable:true },
+		{ id:'academie_d_origine', label:"Academie", modifiable:true },
+		{ id:'session', modifiable:true },
+		{ id:'examen', label:"Examen", modifiable:true }
 	]
 }];
 module.exports=definitions;
