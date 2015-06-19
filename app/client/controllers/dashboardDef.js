@@ -23,14 +23,14 @@ var definitions =[{
 	icone:'casier.svg',
 	dataset:'mj_casier',
 	fields: [
-		{ id:'nom_de_naissance', modifiable:true },
+		{ id:'nom_de_naissance', label:"Nom de naissance", modifiable:true },
 		{ id:'prenoms', modifiable:true },
 		{ id:'sexe', modifiable:true },
-		{ id:'date_de_naissance', modifiable:true },
-		{ id:'lieu_de_naissance', modifiable:true },
-		{ id:'pays_de_naissance', modifiable:true },
-		{ id:'existence_d_une_mention_au_bulletin_b3', modifiable:true },
-		{ id:'existence_d_une_mention_au_bulletin_b2', modifiable:true },
+		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
+		{ id:'lieu_de_naissance', label:"Lieu de naissance", modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance",modifiable:true },
+		{ id:'existence_d_une_mention_au_bulletin_b2', label:"Mention au B2", modifiable:true },
+		{ id:'existence_d_une_mention_au_bulletin_b3', label:"Mention au B3", modifiable:true },
 		{ id:'hypothese', modifiable:true }
 	]
 }, {
@@ -42,12 +42,12 @@ var definitions =[{
 		{ id:'nom_de_naissance', modifiable:true },
 		{ id:'prenoms', modifiable:true },
 		{ id:'sexe', modifiable:true },
-		{ id:'date_de_naissance', modifiable:true },
 		{ id:'s21_g00_30_001_nir', label:'N° SS', modifiable:true },
-		{ id:'lieu_de_naissance', modifiable:true },
-		{ id:'pays_de_naissance', modifiable:true },
-		{ id:'hypothese_situation_pro', modifiable:true },
-		{ id:'hypothese_rfr', modifiable:true }
+		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
+		{ id:'lieu_de_naissance',label:"Lieu de naissance",  modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance", modifiable:true },
+		{ id:'hypothese_situation_pro', label:"Info situation", modifiable:true },
+		{ id:'hypothese_rfr', label:"Hypothèse", modifiable:true }
 	]
 }, {
 	id : 'fai',
@@ -75,11 +75,11 @@ var definitions =[{
 	icone:'credit.svg',
 	dataset:'banque_coordonnees',
 	fields:[ 
-		{ id:'nom_de_naissance', modifiable:true },
+		{ id:'nom_de_naissance', label:"Nom de naissance", modifiable:true },
 		{ id:'prenoms', modifiable:true },
-		{ id:'date_de_naissance', modifiable:true },
-		{ id:'lieu_de_naissance', modifiable:true },
-		{ id:'pays_de_naissance', modifiable:true },
+		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
+		{ id:'lieu_de_naissance', label:"Lieu de naissance", modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance", modifiable:true },
 		{ id:'sexe', modifiable:true },
 		{ id:'etablissement_1', modifiable:true },
 		{ id:'iban_1', modifiable:true },
@@ -95,18 +95,18 @@ var definitions =[{
 	icone:'credit.svg',
 	dataset:'caf_qf',
 	fields:[ 
-		{ id:'nom_de_naissance', modifiable:true },
+		{ id:'nom_de_naissance', label:"Nom de naissance", modifiable:true },
 		{ id:'prenoms', modifiable:true },
 		{ id:'sexe', modifiable:true },
-		{ id:'date_de_naissance', modifiable:true },
-		{ id:'quotient_familial', modifiable:true },
-		{ id:'hypothese_caf', modifiable:true },
-		{ id:'prestations_caf_mensuelles', modifiable:true },
-		{ id:'hypothese_dgfip', modifiable:true },
-		{ id:'lieu_de_naissance', modifiable:true },
-		{ id:'pays_de_naissance', modifiable:true },
-		{ id:'nombre_d_enfants', modifiable:true },
-		{ id:'situation_foyer', modifiable:true }
+		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
+		{ id:'lieu_de_naissance', label:"Lieu de naissance", modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance", modifiable:true },
+		{ id:'quotient_familial', label:"Quotient familial", modifiable:true },
+		{ id:'hypothese_caf', label:"Info", modifiable:true },
+		{ id:'prestations_caf_mensuelles', label:"Prestation mensuelles", modifiable:true },
+		{ id:'hypothese_dgfip', label:"hypothèse DGFIP", modifiable:true },
+		{ id:'nombre_d_enfants', label:"Nb enfants", modifiable:true },
+		{ id:'situation_foyer', label:"Situation foyer", modifiable:true }
 	]
 },{
 	id: 'dgfip_rp',
@@ -114,16 +114,16 @@ var definitions =[{
 	icone:'house.svg',
 	dataset:'dgfip_rp',
 	fields:[
-		{ id:'commune', modifiable:true },
-		{ id:'sexe', modifiable:true },
-		{ id:'date_de_naissance', modifiable:true },
-		{ id:'adresse', modifiable:true },
-		{ id:'hypothese_dgfip_rp', modifiable:true },
-		{ id:'codepostal', modifiable:true },
-		{ id:'nom_de_naissance', modifiable:true },
-		{ id:'lieu_de_naissance', modifiable:true },
+		{ id:'nom_de_naissance', label:"Nom de naissance", modifiable:true },
 		{ id:'prenoms', modifiable:true },
-		{ id:'pays_de_naissance', modifiable:true }
+		{ id:'sexe', modifiable:true },
+		{ id:'date_de_naissance', label:"Date de naissance", modifiable:true },
+		{ id:'lieu_de_naissance', label:"Lieu de naissance", modifiable:true },
+		{ id:'pays_de_naissance', label:"Pays de naissance", modifiable:true },
+		{ id:'adresse', modifiable:true },
+		{ id:'codepostal', modifiable:true },
+		{ id:'commune', modifiable:true },
+		{ id:'hypothese_dgfip_rp', label:"Hypothèse DGFIP", modifiable:true }
 	]
 }];
 module.exports=definitions;
