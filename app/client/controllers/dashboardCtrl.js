@@ -43,7 +43,6 @@ var dashboardCtrl = function($scope, $location, $q, dataService){
 	}
 	var saveConfigDashboards = function() {
 		var dashToSave = $scope.dashboards.map(function(dash) {
-			console.log(dash)
 	    	return {id: dash.id, show: dash.show, alertes: dash.alertes};
 	    })
 	    dataService.saveDashboardConfig(dashToSave);

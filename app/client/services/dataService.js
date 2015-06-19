@@ -47,7 +47,6 @@ var dataService = function() {
 							})
 			},
 			saveCorrection: function(dashboards) {
-				console.log('test');
 				return $http.post('/data/corrections', dashboards)
 			}
 		}

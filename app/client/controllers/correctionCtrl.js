@@ -17,7 +17,6 @@ var correctionCtrl = function($scope, $location, $routeParams, $q, dataService){
 						 	dashboard.loaded = $q.defer();
 			    			return dashboard;
 			    		}).filter(function(dash) {
-			    			console.log(dash)
 			    			return (dash.id == $routeParams.id)
 			    		}); 		
 			   	})

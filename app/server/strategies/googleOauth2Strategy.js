@@ -6,7 +6,6 @@ var strategyConf = config.getGoogleProviderConfig();
 
 var strategy = new OAuth2Strategy(strategyConf,
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
     return done(null, profile);
   }
 );

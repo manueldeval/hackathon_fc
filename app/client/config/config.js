@@ -35,7 +35,6 @@ var configRoutes = function($routeProvider) {
 
 var checkAuthentified= function ($q, $rootScope, $location, loginService) {
 	if ($rootScope.app.authentified) {
-		console.log("utilisateur authentifié -> OK");
         return true;
     } else {
     	var deferred = $q.defer();
@@ -44,7 +43,6 @@ var checkAuthentified= function ($q, $rootScope, $location, loginService) {
         })
         .catch(function(err) {
             deferred.reject();
-            console.log("utilisateur non authentifié -> KO");
             $location.path("/accueil");
         });
     }
