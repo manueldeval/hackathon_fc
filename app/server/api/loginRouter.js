@@ -11,7 +11,6 @@ router.get('/',
 router.get('/user', function(req,res) {
 	if (req.session && req.session.passport && req.session.passport.user && req.session.passport.user.accessToken) {
 		res.status(200).send(req.session.passport.user._json);
-		console.log("passport",req.session.passport);
 	} else {
 		res.status(401).send();
 	}

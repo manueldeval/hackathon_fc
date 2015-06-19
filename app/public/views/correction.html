@@ -3,7 +3,7 @@
   <div class="gridDashboard" layout="row" layout-align="space-between start" style="margin:0px; padding:0px;">
     <div layout="row" layout-wrap data-ng-model="dashboard" style="width: 90%; margin: 0% 5%;" >
       <div flex="100"  ng-if="dashboard.show">
-        <div class="bloc" style="max-height:100%;width:auto;padding-top:40px;" ng-class="{'dashboardLoading':dashboard.loading}" >
+        <div class="bloc" style="max-height:100%;width:100%; padding-top:40px;display: table;" ng-class="{'dashboardLoading':dashboard.loading}" >
            <div class="header" layout="row" layout-align="space-between center" >
             <h3 style="margin:2 0 0 10">
               <md-icon md-svg-icon="images/{{dashboard.icone}}" class="s12" style="color:white"></md-icon> Demande de correction : {{dashboard.label}}

@@ -1,0 +1,55 @@
+<div ng-controller="historiqueCtrl">
+
+  <div class="gridDashboard" layout="row" layout-align="space-between start" style="margin:0px; padding:0px;">
+    <div layout="row" layout-wrap  style="width: 90%; margin: 0% 5%;" >
+      <div flex="100">
+        <div class="bloc" style="max-height:100%;width:100%;padding-top:40px;display: table;" >
+           <div class="header" layout="row" layout-align="space-between center" >
+            <h3 style="margin:2 0 0 10">
+             	Historique des demandes
+            </h3>
+            <div flex></div>
+          </div>
+            <div layout="row" >
+            	<h2>Nombre de demande en attente : {{ historique.length }}.</h2>
+            </div>
+            <div layout="column">
+            	<table class="table-fill" style="width:100%">
+            		<thead>
+            			<tr>
+            				<th>Demande de correction</th>
+            				<th>Etat</th>
+            			</tr>
+            		</thead>
+            		<tbody>
+            			<tr ng-repeat="elm in historique" style="padding:10px 0px;border:1px solid black" >
+		           			<td>
+		           				<md-icon md-svg-icon="images/{{elm.icone}}"></md-icon> {{elm.label}}
+		           			</td>
+		           			<td>
+		           				en attente de traitement
+		           			</td>
+		           		</tr>
+            		</tbody>
+            	</table>
+           		
+           	</div>
+          
+       		<div layout="row" style=" margin-top:5%">
+       			<md-button class="md-raised md-warn" ng-click="go('/')">Retour</md-button>
+       		</div>
+        	
+
+        </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+</div>
+

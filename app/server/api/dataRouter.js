@@ -23,20 +23,18 @@ var defaultRedisConfig = [{id:'identite', show:true},
 router.get('/corrections', function(req,res) {
 	if (req.session.passport.user) {
 		var user = req.session.passport.user._json;
-		redis.hget(REDIS_CONFIG_DASHBOARD_KEY, user.given_name + '$' + user.family_name, function(err, dashboards) {
+		redis.hget(REDIS_CONFIG_CORRECTION_KEY, user.given_name + '$' + user.family_name, function(err, corrections) {
 			if (err) {
-				res.send(defaultRedisConfig);
 				return;
 			}
-			if (dashboards == null) {
-				res.send(defaultRedisConfig);
+			if (corrections == null) {
 				return;
 			}
-			res.send(dashboards);
+			console.log(corrections)
+			res.send(corrections);
 			return;
 		})
 	} else {
-		res.send(defaultRedisConfig);
 		return;
 	}
 });
@@ -54,10 +52,8 @@ router.post('/corrections', function(req, res) {
 				jsonValue = JSON.parse(dashboards);
 			}
 			
-			console.log(jsonValue)
-			jsonValue.push(body)
-			console.log(jsonValue)
-			jsonString = JSON.stringify(jsonValue)
+			jsonValue.push(body);
+			jsonString = JSON.stringify(jsonValue);
 			redis.hset(REDIS_CONFIG_CORRECTION_KEY, user.given_name + '$' + user.family_name, jsonString);
 		});		
 		res.status(200).send();
@@ -83,8 +79,11 @@ router.get('/dashboards', function(req,res) {
 				res.send(defaultRedisConfig);
 				return;
 			}
+			var dashboards = JSON.parse(dashboards);
 			var userDashboard = defaultRedisConfig.map(function(definedWidget){
-				var existsInUserDash = _.find(dashboards,function(dash){ return dash.id == definedWidget.id });
+				var existsInUserDash = _.find(dashboards,function(dash){ 
+					return dash.id == definedWidget.id 
+				});
 				if (existsInUserDash){
 					return existsInUserDash;
 				} else {
@@ -126,43 +125,6 @@ router.get('/dataset/:dataset/', function(req,res) {
 		.fail(function(err) {
 			res.status(404).send(err);
 		});
-    /*
-
-
-	//MOCK
-	if (dataset == 'Banque_Coordonnees') {
-		getMockBanque().then(function(data) {
-			// faux lag
-			setTimeout(function() {
-				res.send(data);
-			}, 2000);
-		});
-		return;
-	}
-	if (dataset == 'FAI_Contact') {
-		ods.getData(req.session.passport.user.accessToken,'fai_contact')
-			.then(function(data){console.log(data);
-			res.send(data);
-		});
-		return;
-	}
-	if (dataset == 'MJ_Casier') {
-		getMockCasier().then(function(data) {
-			res.send(data);	
-		});
-		return;
-	}
-	if (dataset == 'ACOSS_SituationPro') {
-		getMockAcoss().then(function(data) {
-			// faux lag
-			setTimeout(function() {
-				res.send(data);	
-			}, 1000);
-		});
-		return;	
-	}
-	*/
-	//res.status(404).send();
 });
 
 router.get('/datasets/:datasets/', function(req,res) {
