@@ -41,6 +41,18 @@ html, body {
     opacity: 0.05;
 }
 
+.as-sortable-dragging .header,
+.gridDashboard .bloc .header {
+  background: rgba(0, 0, 0, 0.68);
+  height: 36px;
+  color:#FFFFFF;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  vertical-align: middle;
+}
+
 .as-sortable-dragging .footer,
 .gridDashboard .bloc .footer {
   background: rgba(0, 0, 0, 0.68);
